@@ -1,3 +1,33 @@
-.bg-color{
-  background-color: aqua;
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata&family=Roboto+Slab&family=Ubuntu&display=swap');
+
+/* 
+font-family: 'Inconsolata', monospace;
+font-family: 'Roboto Slab', serif;
+font-family: 'Ubuntu', sans-serif; 
+*/
+
+:root{
+  --primary: 'Roboto Slab', serif;
+  --secondary: 'Ubuntu', sans-serif;
+  --accent: 'Inconsolata', monospace;
+}
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+h1,h2,h3,h4,h5,h6{
+  font-family: var(--primary);
+}
+p,li,small{
+  font-family: var(--secondary);
+}
+a, button, label{
+  font-family: var(--accent);
+}
+a{
+  text-decoration: none;
+}
+li{
+  list-style: none;
 }
