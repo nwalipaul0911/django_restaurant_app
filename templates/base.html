@@ -24,8 +24,13 @@
     <!-- custom js starts -->
     <script src="{% static 'scripts/modify.js' %}"></script>
     <!-- custom js ends -->
+
+    <!-- fontawesome -->
+    <script src="https://kit.fontawesome.com/37650af435.js" crossorigin="anonymous"></script>
+    <!--  -->
   </head>
   <body>
+    {% include 'partials/navbar.html' %}
     {% block main %}
       
     {% endblock main %}

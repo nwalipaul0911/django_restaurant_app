@@ -5,6 +5,27 @@
   Home
 {% endblock title %}
 {% block main %}
+<!-- ======= hero section starts ========= -->
+<div class="container-fluid">
+  <div class="row g-0">
+    <div class="col-md-6 col-sm-12">
+      <div class="col-12 d-flex justify-content-center align-items-center">
+        <img src="{% static 'images/delicious-fried-chicken-plate.jpg' %}" alt="..." class="img-fluid">
+      </div>
+    </div>
+    <div class="col-md-6 col-sm-12">
+      <div class="col-12 justify-content-center align-items-center" style="height:100%; display:grid">
+        <div class="col-8 mx-auto" style='height:fit-content'>
+          <h4 class="hero-header">Meet, Eat, Taste and Smile</h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis impedit incidunt nesciunt fugiat commodi odit aliquam in quod, dolores expedita fugit esse maiores a quis ea repellat natus similique sint.</p>
+          <a href="{% url 'restaurant-menu' %}"><button class="base-color-outline rounded-pill">View Menu</button></a>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</div>
+<!-- ======= hero section ends ========= -->
   
 {% endblock main %}
   
