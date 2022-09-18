@@ -19,8 +19,9 @@ font-family: 'Ubuntu', sans-serif;
 }
 h1,h2,h3,h4,h5,h6{
   font-family: var(--primary);
+  color:var(--base-color)
 }
-p,li,small{
+p,li,small,blockquote{
   font-family: var(--accent);
 }
 a, button, label{
@@ -35,6 +36,16 @@ a>button.base-color{
   color:white;
   padding: 4px 10px;
 }
+.base-color-outline{
+  color:var(--base-color);
+  border:2px solid var(--base-color);
+  padding: 4px 10px;
+  background-color: transparent;
+}
+.base-color-outline:hover{
+  color:white;
+  background-color: var(--base-color);
+}
 a>button.base-color-outline{
   color:var(--base-color);
   border:2px solid var(--base-color);
@@ -44,6 +55,9 @@ a>button.base-color-outline{
 a>button.base-color-outline:hover{
   color:white;
   background-color: var(--base-color);
+}
+.header-white{
+  color:white;
 }
 .hero-header{
   color:var(--base-color)
@@ -57,4 +71,52 @@ a.nav-link:hover{
 }
 li{
   list-style: none;
+}
+.bg-base{
+  background-color: var(--base-color);
+}
+.bg-image-1{
+  background: linear-gradient(to left, rgba(225, 225, 225, 0.9), rgba(225, 225, 225, 0.9), rgba(225, 225, 225, 0)), url('../images/wepik-photo-mode-2022817-11531.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+.fit-content{
+  width: fit-content;
+}
+.menu-card{
+  position:relative;
+}
+.menu-price{
+  position:absolute;
+  background-color: var(--base-color);
+  right:0;
+  top:0;
+  padding: 0 5px;
+  font-style: italic;
+  border-radius: 0px 5px 0px 0px;
+  color:white
+}
+input,textarea{
+  display:block;
+  width: 100%;
+  margin:0px 0px 20px 0px;
+  outline: none;
+  padding:5px 0px;
+  border: 2px solid var(--base-color);
+}
+.reviews{
+  overflow-x: hidden;
+  position: relative;
+}
+.reviews-body{
+  flex-wrap: nowrap;
+  transform: translateX(100%);
+  animation:scroll-left 30s linear infinite;
+}
+@keyframes scroll-left {
+  0%{transform:translateX(100%)}
+  50%{transform:translateX(0%)}
+  100%{transform:translateX(-110%)}
+  
 }

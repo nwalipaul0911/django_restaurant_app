@@ -22,7 +22,7 @@
     <!-- cutom css ends -->
 
     <!-- custom js starts -->
-    <script src="{% static 'scripts/modify.js' %}"></script>
+    <script defer src="{% static 'scripts/modify.js' %}"></script>
     <!-- custom js ends -->
 
     <!-- fontawesome -->
@@ -34,5 +34,6 @@
     {% block main %}
       
     {% endblock main %}
+    {% include 'partials/footer.html' %}
   </body>
 </html>
