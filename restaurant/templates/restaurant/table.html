@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block title %}
+  Book Table
+{% endblock title %}
+
+
+{% block main %}
+
+<div class="container-fluid" style="display:grid;place-items:center;height:100vh">
+  <form action="" method="post" class="p-5 col-6 mt-3 mb-5 rounded  bg-base">
+    {% csrf_token %}
+    <input type="text" placeholder="Name">
+    <select name="guests" id="guests">
+      <option value="1">1</option>
+      <option value="2">2</option>
+    </select>
+    <input type="date" name="date" id="date">
+    <input type="time" name="time" id="time">
+    <input type="email" name="email" id="email" placeholder="E-mail">
+    <textarea name="message" id="message" placeholder="Message"></textarea>
+    <input type="submit" value="Submit Booking" id="submit">
+  </form>
+</div>  
+
+{% endblock main %}
+

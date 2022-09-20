@@ -1,0 +1,147 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+{% block title %}
+  Home
+{% endblock title %}
+{% block main %}
+<!-- ======= hero section starts ========= -->
+<div class="container-fluid py-5">
+  <div class="row g-0">
+    
+    <div class="col-md-6 col-sm-12">
+      <div class="col-12" style="height:100%; display:grid; place-items: center;">
+        <div class="col-8 mx-auto" style='height:fit-content'>
+          <h4 class="hero-header">Discover the taste of good living</h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis impedit incidunt nesciunt fugiat commodi odit aliquam in quod, dolores expedita fugit esse maiores a quis ea repellat natus similique sint.</p>
+          <a href="{% url 'restaurant-menu' %}"><button class="base-color-outline rounded">View Menu</button></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-sm-12  d-flex justify-content-center align-items-center">
+      <img src="{% static 'images/wepik-photo-mode-2022817-102039.png' %}" alt="..." class="img-fluid">
+    </div>
+    
+  </div>
+</div>
+<!-- ======= hero section ends ========= -->
+
+<!--============= About section starts =======-->
+<div class="container-fluid py-5 mt-5  bg-image-1">
+  <div class="row g-0">
+    <div class="col-md-6 col-sm-12"></div>
+    <div class="col-md-6 col-sm-12">
+      <div class="container-fluid d-flex justify-content-center align-items-center ">
+        <div class="col-8 bg-muted">
+          <h4 class="text-justify"> About Us</h4>
+          <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis impedit incidunt nesciunt fugiat commodi odit aliquam in quod, dolores expedita fugit esse maiores a quis ea repellat natus similique sint.</p>
+          <div class="fit-content">
+            <a href="{% url 'restaurant-about' %}" class="btn btn-sm"><button class="base-color-outline rounded">More About Us</button></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--============= About section ends ============-->
+
+<!-- =========== Menu section starts ============== -->
+<div class="container-fluid bg-dark py-5">
+  <h4 class="text-center mb-5">Our Menu</h4>
+  <div class="row">
+
+    <div class="col-md-4 col-sm-12">
+      <div class="col-8 mx-auto">
+        <div class="card menu-card" style="width: 100%;">
+          <img src="{% static 'images/wepik-photo-mode-2022816-22659.png' %}" class="card-img-top" alt="...">
+          <p class="menu-price">Price</p>
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <div class="fit-content">
+              <a href="{% url 'restaurant-order' %}" class="btn btn-sm"><button class="base-color-outline rounded">Order Now</button></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- =========== Menu section ends ============ -->
+
+<!-- ========= Service section starts ======================= -->
+<div class="container-fluid my-5">
+  <h4 class="text-center my-4">Services</h4>
+  <div class="row">
+    <div class="col-md-4 col-sm-12">
+      <div class="col-10 mx-auto">
+        <img src="{% static 'images/delicious-fried-chicken-plate.jpg' %}" alt="" class="img-fluid img-thumbnail">
+        <h6 class="text-center text-dark my-3">Birthday Party</h6>
+      </div>
+    </div>
+    <div class="col-md-4 col-sm-12">
+      <div class="col-10 mx-auto">
+        <img src="{% static 'images/delicious-fried-chicken-plate.jpg' %}" alt="" class="img-fluid img-thumbnail">
+        <h6 class="text-center text-dark my-3">Birthday Party</h6>
+      </div>
+    </div>
+    <div class="col-md-4 col-sm-12">
+      <div class="col-10 mx-auto">
+        <img src="{% static 'images/delicious-fried-chicken-plate.jpg' %}" alt="" class="img-fluid img-thumbnail">
+        <h6 class="text-center text-dark my-3">Birthday Party</h6>
+      </div>
+    </div>
+    <div class="col-md-4 col-sm-12">
+      <div class="col-10 mx-auto">
+        <img src="{% static 'images/delicious-fried-chicken-plate.jpg' %}" alt="" class="img-fluid img-thumbnail">
+        <h6 class="text-center text-dark my-3">Birthday Party</h6>
+      </div>
+    </div>
+    <div class="col-md-4 col-sm-12">
+      <div class="col-10 mx-auto">
+        <img src="{% static 'images/delicious-fried-chicken-plate.jpg' %}" alt="" class="img-fluid img-thumbnail">
+        <h6 class="text-center text-dark my-3">Birthday Party</h6>
+      </div>
+    </div>
+    <div class="col-md-4 col-sm-12">
+      <div class="col-10 mx-auto">
+        <img src="{% static 'images/delicious-fried-chicken-plate.jpg' %}" alt="" class="img-fluid img-thumbnail">
+        <h6 class="text-center text-dark my-3">Birthday Party</h6>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ========================= Service section ends ==================== -->
+
+<!-- ================== Review section starts ======================= -->
+<div class="container-fluid py-5">
+  <h4 class="text-center">Customer Reviews</h4>
+</div>
+<div class="reviews container-fluid pb-5">
+  <div class="d-flex reviews-body">
+    <div class="card col-4 me-2">
+      <div class="card-body">
+        <p>A well-known quote, contained in a blockquote element.</p>
+        <h6>Source Title</h6>
+      </div>
+    </div>
+    <div class="card col-4 mx-2">
+      <div class="card-body">
+        <p>A well-known quote, contained in a blockquote element.</p>
+        <h6>Source Title</h6>
+      </div>
+    </div>
+    <div class="card col-4 ms-2">
+      <div class="card-body">
+        <p>A well-known quote, contained in a blockquote element.</p>
+        <h6>Source Title</h6>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ============ Review section ends ======================= -->
+ 
+{% endblock main %}
+  
+  

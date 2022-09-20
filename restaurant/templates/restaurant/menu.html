@@ -1,0 +1,153 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block title %}
+  Menu
+{% endblock title %}
+  
+
+{% block main %}
+  <h4 class="text-center my-5">Our Menu</h4>  
+
+  <nav class="navbar navbar-expand-lg bg-dark">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item">
+            <a class="nav-link text-light" id="breakfast-link" aria-current="page" href="#breakfast">Breakfast</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light" id="lunch-link" href="#lunch">Lunch</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light" id="dinner-link" href="#dinner">Dinner</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light" id="drinks-link" href="#drinks">Drinks</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light" id="desserts-link" href="#desserts">Desserts</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- =========== Menu section starts ============== -->
+<div id="breakfast">
+  <div class="container-fluid bg-base py-5">
+    <div class="row">
+  
+      <div class="col-md-4 col-sm-12">
+        <div class="col-8 mx-auto">
+          <div class="card menu-card" style="width: 100%;">
+            <img src="{% static 'images/wepik-photo-mode-2022816-22659.png' %}" class="card-img-top" alt="...">
+            <p class="menu-price">Price</p>
+            <div class="card-body">
+              <h6 class="card-title">Chicken</h6>
+              <p class="card-text">roasted chicken and chips</p>
+              <div class="fit-content">
+                <a href="{% url 'restaurant-order' %}" class="btn btn-sm"><button class="base-color-outline rounded">Order Now</button></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="lunch">
+  <div class="container-fluid bg-base py-5">
+    <div class="row">
+  
+      <div class="col-md-4 col-sm-12">
+        <div class="col-8 mx-auto">
+          <div class="card menu-card" style="width: 100%;">
+            <img src="{% static 'images/wepik-photo-mode-2022816-22659.png' %}" class="card-img-top" alt="...">
+            <p class="menu-price">Price</p>
+            <div class="card-body">
+              <h6 class="card-title">Chicken</h6>
+              <p class="card-text">roasted chicken and chips</p>
+              <div class="fit-content">
+                <a href="{% url 'restaurant-order' %}" class="btn btn-sm"><button class="base-color-outline rounded">Order Now</button></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="dinner">
+  <div class="container-fluid bg-base py-5">
+    <div class="row">
+  
+      <div class="col-md-4 col-sm-12">
+        <div class="col-8 mx-auto">
+          <div class="card menu-card" style="width: 100%;">
+            <img src="{% static 'images/wepik-photo-mode-2022816-22659.png' %}" class="card-img-top" alt="...">
+            <p class="menu-price">Price</p>
+            <div class="card-body">
+              <h6 class="card-title">Chicken</h6>
+              <p class="card-text">roasted chicken and chips</p>
+              <div class="fit-content">
+                <a href="{% url 'restaurant-order' %}" class="btn btn-sm"><button class="base-color-outline rounded">Order Now</button></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="drinks">
+  <div class="container-fluid bg-base py-5">
+    <div class="row">
+  
+      <div class="col-md-4 col-sm-12">
+        <div class="col-8 mx-auto">
+          <div class="card menu-card" style="width: 100%;">
+            <img src="{% static 'images/wepik-photo-mode-2022816-22659.png' %}" class="card-img-top" alt="...">
+            <p class="menu-price">Price</p>
+            <div class="card-body">
+              <h6 class="card-title">Chicken</h6>
+              <p class="card-text">roasted chicken and chips</p>
+              <div class="fit-content">
+                <a href="{% url 'restaurant-order' %}" class="btn btn-sm"><button class="base-color-outline rounded">Order Now</button></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="desserts">
+  <div class="container-fluid bg-base py-5">
+    <div class="row">
+  
+      <div class="col-md-4 col-sm-12">
+        <div class="col-8 mx-auto">
+          <div class="card menu-card" style="width: 100%;">
+            <img src="{% static 'images/wepik-photo-mode-2022816-22659.png' %}" class="card-img-top" alt="...">
+            <p class="menu-price">Price</p>
+            <div class="card-body">
+              <h6 class="card-title">Chicken</h6>
+              <p class="card-text">roasted chicken and chips</p>
+              <div class="fit-content">
+                <a href="{% url 'restaurant-order' %}" class="btn btn-sm"><button class="base-color-outline rounded">Order Now</button></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- =========== Menu section ends ============ -->
+{% endblock main %}
