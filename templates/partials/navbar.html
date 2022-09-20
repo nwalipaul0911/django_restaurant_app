@@ -1,3 +1,4 @@
+<!-- ========== Navbar section starts =============== -->
 <nav class="navbar navbar-expand-lg">
   <div class="container-fluid">
     <a class="navbar-brand ms-5" href="#"><i class="fa-solid fa-utensils"></i> WELLFED</a>
@@ -8,15 +9,16 @@
       <div class="navbar-nav mx-auto">
         <a class="nav-link active" aria-current="page" href="{% url 'restaurant-home' %}">Home</a>
         <a class="nav-link" href="{% url 'restaurant-about' %}">About</a>
-        <a class="nav-link" href="{% url 'restaurant-gallery' %}">Gallery</a>
+        <a class="nav-link" href="{% url 'restaurant-service' %}">Services</a>
         <a class="nav-link" href="{% url 'restaurant-menu' %}">Menu</a>
         <a class="nav-link" href="{% url 'restaurant-contact' %}">Contact</a>
         <div style="width:fit-content" class="ms-0">
-          <a href="{% url 'restaurant-contact' %}" class="d-md-block d-lg-none"><button class="base-color-outline rounded">BOOK A TABLE</button></a>
+          <a href="{% url 'restaurant-table' %}" class="d-md-block d-lg-none"><button class="base-color-outline rounded">BOOK A TABLE</button></a>
         </div>
         
       </div>
     </div>
-    <a href="{% url 'restaurant-contact' %}" class="btn btn-sm d-none d-sm-none d-md-none d-lg-block me-5"><button class="base-color-outline rounded">BOOK A TABLE</button></a>
+    <a href="{% url 'restaurant-table' %}" class="btn btn-sm d-none d-sm-none d-md-none d-lg-block me-5"><button class="base-color-outline rounded">BOOK A TABLE</button></a>
   </div>
 </nav>
+<!-- ========== Navbar section ends =============== -->

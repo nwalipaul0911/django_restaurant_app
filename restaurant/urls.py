@@ -5,6 +5,8 @@ urlpatterns = [
     path('home/', home, name='restaurant-home'),
     path('menu/', menu, name='restaurant-menu'),
     path('about/', about, name='restaurant-about'),
-    path('gallery/', gallery, name='restaurant-gallery'),
     path('contact/', contact, name='restaurant-contact'),
+    path('service/', service, name='restaurant-service'),
+    path('order/', order, name='restaurant-order'),
+    path('table/', table, name='restaurant-table'),
 ]

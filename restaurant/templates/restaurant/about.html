@@ -7,6 +7,89 @@
 {% endblock title %}
   
 {% block main %}
-  <h4 class="text-center mt-5">About Us</h4>
+<!-- ======= hero section starts ========= -->
+<div class="container-fluid pt-3 pb-5">
+  <div class="row">
+    
+    <div class="col-md-6 col-sm-12">
+      <div class="col-12" style="height:100%; display:grid; place-items: center;">
+        <div class="col-8 mx-auto" style='height:fit-content'>
+          <h4 class="hero-header">About Us</h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis impedit incidunt nesciunt fugiat commodi odit aliquam in quod, dolores expedita fugit esse maiores a quis ea repellat natus similique sint.</p>
+          
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-sm-12">
+      <img src="{% static 'images/wepik-photo-mode-2022819-84549.png' %}" alt="..." class="img-fluid">
+    </div> 
+  </div>
+</div>
+<!-- ======= hero section ends ========= -->
+
+<!-- =========== Team section starts =============== -->
+<div class="container-fluid mb-5 pb-3">
+  <h4 class="text-center mt-3 mb-4">Our Team</h4>
+  <div class="row">
+    <div class="col-md-4 col-sm-12">
+      <div class="col-10 mx-auto">
+        <div class="col-8 mx-auto mb-3">
+          <img src="{% static 'images/wepik-photo-mode-2022819-105537.png' %}" alt="" class="img-fluid circle-border">
+        </div>
+        <dl class="text-center">
+          <dt class="">Angelina Jolie</dt>
+          <dd>Waiter</dd>
+        </dl>
+      </div>
+    </div>
+
+    <div class="col-md-4 col-sm-12">
+      <div class="col-10 mx-auto">
+        <div class="col-8 mx-auto mb-3" style="border-radius:50%" style="overflow:hidden">
+          <img src="{% static 'images/wepik-photo-mode-2022819-105537.png' %}" alt="" class="img-fluid circle-border">
+        </div>
+        <dl class="text-center">
+          <dt class="">Angelina Jolie</dt>
+          <dd>Waiter</dd>
+        </dl>
+      </div>
+    </div>
+
+    <div class="col-md-4 col-sm-12">
+      <div class="col-10 mx-auto">
+        <div class="col-8 mx-auto mb-3" style="border-radius:50%" style="overflow:hidden">
+          <img src="{% static 'images/wepik-photo-mode-2022819-105537.png' %}" alt="" class="img-fluid circle-border">
+        </div>
+        <dl class="text-center">
+          <dt class="">Angelina Jolie</dt>
+          <dd>Waiter</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========= Team section ends ================ -->
+
+<!--============= About section starts =======-->
+<div class="container-fluid py-5 mt-5  bg-image-2">
+  <div class="row g-0">
+    <div class="col-md-6 col-sm-12"></div>
+    <div class="col-md-6 col-sm-12">
+      <div class="container-fluid d-flex justify-content-center align-items-center ">
+        <div class="col-8 bg-muted">
+          <h4 class="text-justify">More About Us</h4>
+          <p class="text-justify">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores totam aut natus aperiam nam reiciendis perspiciatis nisi porro minima veniam at autem error deleniti, eos consequatur accusamus ipsam! Praesentium, error.
+          Reprehenderit harum exercitationem eos odit minima labore voluptatibus consequuntur quas doloremque assumenda, natus sint, ut atque, impedit repellat fuga? Deleniti consequuntur perspiciatis expedita cum quasi voluptatibus dolores rerum! Eius, ut.</p>
+          <div class="fit-content">
+            <a href="{% url 'restaurant-contact' %}" class="btn btn-sm"><button class="base-color-outline rounded">Contact US</button></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--============= About section ends ============-->
 {% endblock main %}
   

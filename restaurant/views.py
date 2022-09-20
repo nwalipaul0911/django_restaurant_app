@@ -11,8 +11,14 @@ def menu(request):
 def about(request):
   return render(request, 'restaurant/about.html')
 
-def gallery(request):
-  return render(request, 'restaurant/gallery.html')
+def service(request):
+  return render(request, 'restaurant/service.html')
 
 def contact(request):
   return render(request, 'restaurant/contact.html')
+
+def table(request):
+  return render(request, 'restaurant/table.html')
+
+def order(request):
+  return render(request, 'restaurant/order.html')
