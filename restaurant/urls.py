@@ -8,5 +8,5 @@ urlpatterns = [
     path('contact/', contact, name='restaurant-contact'),
     path('service/', service, name='restaurant-service'),
     path('order/', order, name='restaurant-order'),
-    path('table/', table, name='restaurant-table'),
+    path('table/<int:id>', table, name='restaurant-table'),
 ]
