@@ -10,14 +10,14 @@ class MenuAdmin(admin.ModelAdmin):
 
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
-  list_display = ('id', 'name', 'address')
+  list_display = ('id', 'name', 'address', 'order_number')
   list_display_links = ('id', 'name')
   list_filter = ('order_date',)
   search_fields = ('order_date',)
 
 @admin.register(Table)
 class TableAdmin(admin.ModelAdmin):
-  list_display = ('id', 'date_visiting', 'name')
+  list_display = ('id', 'date_visiting', 'name', 'booking_number')
   list_display_links = ('id', 'name')
   list_filter = ('date_visiting',)
   search_fields = ('date_visiting',)

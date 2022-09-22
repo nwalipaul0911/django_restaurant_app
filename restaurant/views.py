@@ -1,22 +1,32 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404, HttpResponse
 from django.core.paginator import Paginator
 from .models import *
 from .forms import *
+import random
+from django.contrib import messages
+from django.core.mail import send_mail, BadHeaderError
 
 # Create your views here.
 def home(request):
-  return render(request, 'restaurant/index.html')
+  menus = Menu.objects.all().order_by('?')
+  paginator = Paginator(menus, 6)
+  page = request.GET.get('page')
+  menus = paginator.get_page(page)
+  context = {
+    'menus': menus
+  }
+  return render(request, 'restaurant/index.html', context)
 
 def menu(request):
-  breakfast = Menu.objects.all().filter(menu_category = 'breakfast').order_by('?')
-  lunch = Menu.objects.all().filter(menu_category = 'lunch').order_by('?')
-  dinner = Menu.objects.all().filter(menu_category = 'dinner').order_by('?')
+  breakfasts = Menu.objects.all().filter(menu_category = 'breakfast').order_by('?')
+  lunchs = Menu.objects.all().filter(menu_category = 'lunch').order_by('?')
+  dinners = Menu.objects.all().filter(menu_category = 'dinner').order_by('?')
   drinks = Menu.objects.all().filter(menu_category = 'drinks').order_by('?')
   desserts = Menu.objects.all().filter(menu_category = 'desserts').order_by('?')
   context = {
-    'breakfast': breakfast,
-    'lunch': lunch,
-    'dinner': dinner,
+    'breakfasts': breakfasts,
+    'lunchs': lunchs,
+    'dinners': dinners,
     'drinks': drinks,
     'desserts': desserts,
   }
@@ -33,25 +43,60 @@ def contact(request):
   if request.method == 'POST':
     form = ContactForm(request.POST)
     if form.is_valid():
-      form.save()
+      instance = form.save(commit=False)
+      body = {
+        'name': instance.name,
+        'email' : instance.e_mail,
+        'message': instance.message
+      }
+      message = '\n'.join(body.values())
+      try:
+        send_mail('Enquiries', message, None, ['nwalipaul353@gmail.com'],fail_silently=False)
+      except BadHeaderError:
+        return HttpResponse("Invalid header found.")
+      messages.success(request, 'Message sent successfully.')
       return redirect('restaurant-home')
+    else:
+      messages.error(request, 'Please fill the contact form!')
+      form = ContactForm()
   context={
     'form': form,
     'menu': menu,
   }
-  return render(request, 'restaurant/contact.html')
+  return render(request, 'restaurant/contact.html', context)
 
 def table(request):
   form = TableForm(request.POST)
   if request.method == 'POST':
     form = TableForm(request.POST)
     if form.is_valid():
-      form.save()
+      instance = form.save(commit=False)
+      random_number =random.randint(10000,500000)
+      random_number2 = int((random.randint(70,90)*random_number)/7)
+      instance.booking_number = random_number2
+      body = {
+        'name': instance.name,
+        'email': instance.e_mail,
+        'booking_number': f'Booking number: {instance.booking_number}',
+        'guests': f'Number of guests: {instance.guests}',
+        'date': f'Date: {instance.date_visiting}',
+        'time': f'Time: {instance.time_visiting}'
+      }
+      message = '\n'.join(body.values())
+      try:
+        send_mail('Table Reservation', message, None,['nwalipaul353@gmail.com'],fail_silently=False )
+      except BadHeaderError:
+        return HttpResponse("Invalid header found.")
+      messages.info(request, 'Booking Processing.')
+      instance.save()
       return redirect('restaurant-home')
+    else:
+      messages.error(request, 'Booking not submitted. Try again')
+      form = TableForm()
   context={
     'form': form,
   }
-  return render(request, 'restaurant/table.html')
+  return render(request, 'restaurant/table.html', context)
 
 def order(request, id):
   menu = get_object_or_404(Menu, id=id)
@@ -60,9 +105,29 @@ def order(request, id):
     form = OrderForm(request.POST)
     if form.is_valid():
       instance = form.save(commit=False)
-      instance.order_number = menu.id
+      random_number = menu.id * random.randint(40000,100000)
+      random_number2 = int((random.randint(10,20)*random_number)/3)
+      instance.order_number = random_number2
+      body = {
+        'name': instance.name,
+        'email': instance.e_mail,
+        'order_number': f'Order number: {instance.order_number}',
+        'address': f'Address: {instance.address}',
+        'quantity': f'Quantity: {instance.quantity}',
+      }
+      message = '\n'.join(body.values())
+      try:
+        send_mail('New Order', message, None,['nwalipaul353@gmail.com'],fail_silently=False )
+      except BadHeaderError:
+        return HttpResponse("Invalid header found.")
+      messages.success(request, 'Order Successful')
       instance.save()
       return redirect('restaurant-home')
+    else:
+      messages.error(request, 'Booking not submitted. Try again')
+      instance.save()
+      return redirect('restaurant-home')
+      form = OrderForm()
   context={
     'form': form,
     'menu': menu,

@@ -10,52 +10,49 @@
 {% block main %}
   <h4 class="text-center my-5">Our Menu</h4>  
 
-  <nav class="navbar navbar-expand-lg bg-dark">
+  <nav class="navbar navbar-expand-lg bg-dark shadow">
     <div class="container-fluid">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav mx-auto">
-          <li class="nav-item">
-            <a class="nav-link text-light" id="breakfast-link" aria-current="page" href="#breakfast">Breakfast</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-light" id="lunch-link" href="#lunch">Lunch</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-light" id="dinner-link" href="#dinner">Dinner</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-light" id="drinks-link" href="#drinks">Drinks</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-light" id="desserts-link" href="#desserts">Desserts</a>
-          </li>
-        </ul>
-      </div>
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item">
+          <a class="nav-link text-light" id="breakfast-link" aria-current="page" href="#breakfast">Breakfast</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-light" id="lunch-link" href="#lunch">Lunch</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-light" id="dinner-link" href="#dinner">Dinner</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-light" id="drinks-link" href="#drinks">Drinks</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-light" id="desserts-link" href="#desserts">Desserts</a>
+        </li>
+      </ul>
     </div>
   </nav>
   <!-- =========== Menu section starts ============== -->
 <div id="breakfast">
   <div class="container-fluid bg-base py-5">
     <div class="row">
-  
+      
+      {% for breakfast in breakfasts %}
       <div class="col-md-4 col-sm-12">
-        <div class="col-8 mx-auto">
-          <div class="card menu-card" style="width: 100%;">
-            <img src="{% static 'images/wepik-photo-mode-2022816-22659.png' %}" class="card-img-top" alt="...">
-            <p class="menu-price">Price</p>
-            <div class="card-body">
-              <h6 class="card-title">Chicken</h6>
-              <p class="card-text">roasted chicken and chips</p>
-              <div class="fit-content">
-                <a href="{% url 'restaurant-order' %}" class="btn btn-sm"><button class="base-color-outline rounded">Order Now</button></a>
-              </div>
+        <div class="card menu-card mx-auto" style="width: 14rem;">
+          <img src="{{breakfast.photo.url}}" class="card-img-top" alt="...">
+          <p class="menu-price">N {{breakfast.price}}</p>
+          <div class="card-body">
+            <h6 class="card-title">{{breakfast.name}}</h6>
+            <p class="card-text">{{breakfast.description|truncatechars:100}}</p>
+            <div class="fit-content">
+              <a href="{% url 'restaurant-order' breakfast.id %}" class="btn btn-sm"><button class="base-color-outline rounded">Order Now</button></a>
             </div>
           </div>
         </div>
       </div>
+      {% endfor %}
+        
+      
     </div>
   </div>
 </div>
@@ -63,21 +60,23 @@
   <div class="container-fluid bg-base py-5">
     <div class="row">
   
+      {% for lunch in lunchs %}
       <div class="col-md-4 col-sm-12">
         <div class="col-8 mx-auto">
           <div class="card menu-card" style="width: 100%;">
-            <img src="{% static 'images/wepik-photo-mode-2022816-22659.png' %}" class="card-img-top" alt="...">
-            <p class="menu-price">Price</p>
+            <img src="{{lunch.photo.url}}" class="card-img-top" alt="...">
+            <p class="menu-price">N {{lunch.price}}</p>
             <div class="card-body">
-              <h6 class="card-title">Chicken</h6>
-              <p class="card-text">roasted chicken and chips</p>
+              <h6 class="card-title">{{lunch.name}}</h6>
+              <p class="card-text">{{lunch.description|truncatechars:100}}</p>
               <div class="fit-content">
-                <a href="{% url 'restaurant-order' %}" class="btn btn-sm"><button class="base-color-outline rounded">Order Now</button></a>
+                <a href="{% url 'restaurant-order' lunch.id %}" class="btn btn-sm"><button class="base-color-outline rounded">Order Now</button></a>
               </div>
             </div>
           </div>
         </div>
       </div>
+      {% endfor %}
     </div>
   </div>
 </div>
@@ -85,21 +84,23 @@
   <div class="container-fluid bg-base py-5">
     <div class="row">
   
+      {% for dinner in dinners %}
       <div class="col-md-4 col-sm-12">
         <div class="col-8 mx-auto">
           <div class="card menu-card" style="width: 100%;">
-            <img src="{% static 'images/wepik-photo-mode-2022816-22659.png' %}" class="card-img-top" alt="...">
-            <p class="menu-price">Price</p>
+            <img src="{{dinner.photo.url}}" class="card-img-top" alt="...">
+            <p class="menu-price">N {{dinner.price}}</p>
             <div class="card-body">
-              <h6 class="card-title">Chicken</h6>
-              <p class="card-text">roasted chicken and chips</p>
+              <h6 class="card-title">{{dinner.name}}</h6>
+              <p class="card-text">{{dinner.description|truncatechars:100}}</p>
               <div class="fit-content">
-                <a href="{% url 'restaurant-order' %}" class="btn btn-sm"><button class="base-color-outline rounded">Order Now</button></a>
+                <a href="{% url 'restaurant-order' dinner.id %}" class="btn btn-sm"><button class="base-color-outline rounded">Order Now</button></a>
               </div>
             </div>
           </div>
         </div>
       </div>
+      {% endfor %}
     </div>
   </div>
 </div>
@@ -107,21 +108,23 @@
   <div class="container-fluid bg-base py-5">
     <div class="row">
   
+      {% for drink in drinks %}
       <div class="col-md-4 col-sm-12">
         <div class="col-8 mx-auto">
           <div class="card menu-card" style="width: 100%;">
-            <img src="{% static 'images/wepik-photo-mode-2022816-22659.png' %}" class="card-img-top" alt="...">
-            <p class="menu-price">Price</p>
+            <img src="{{drink.photo.url}}" class="card-img-top" alt="...">
+            <p class="menu-price">N {{drink.price}}</p>
             <div class="card-body">
-              <h6 class="card-title">Chicken</h6>
-              <p class="card-text">roasted chicken and chips</p>
+              <h6 class="card-title">{{drink.name}}</h6>
+              <p class="card-text">{{drink.description|truncatechars:100}}</p>
               <div class="fit-content">
-                <a href="{% url 'restaurant-order' %}" class="btn btn-sm"><button class="base-color-outline rounded">Order Now</button></a>
+                <a href="{% url 'restaurant-order' drink.id %}" class="btn btn-sm"><button class="base-color-outline rounded">Order Now</button></a>
               </div>
             </div>
           </div>
         </div>
       </div>
+      {% endfor %}
     </div>
   </div>
 </div>
@@ -129,21 +132,23 @@
   <div class="container-fluid bg-base py-5">
     <div class="row">
   
+      {% for dessert in desserts %}
       <div class="col-md-4 col-sm-12">
         <div class="col-8 mx-auto">
           <div class="card menu-card" style="width: 100%;">
-            <img src="{% static 'images/wepik-photo-mode-2022816-22659.png' %}" class="card-img-top" alt="...">
-            <p class="menu-price">Price</p>
+            <img src="{{dessert.photo.url}}" class="card-img-top" alt="...">
+            <p class="menu-price">N {{dessert.price}}</p>
             <div class="card-body">
-              <h6 class="card-title">Chicken</h6>
-              <p class="card-text">roasted chicken and chips</p>
+              <h6 class="card-title">{{dessert.name}}</h6>
+              <p class="card-text">{{dessert.description|truncatechars:100}}</p>
               <div class="fit-content">
-                <a href="{% url 'restaurant-order' %}" class="btn btn-sm"><button class="base-color-outline rounded">Order Now</button></a>
+                <a href="{% url 'restaurant-order' dessert.id %}" class="btn btn-sm"><button class="base-color-outline rounded">Order Now</button></a>
               </div>
             </div>
           </div>
         </div>
       </div>
+      {% endfor %}
     </div>
   </div>
 </div>

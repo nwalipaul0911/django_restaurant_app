@@ -6,13 +6,14 @@
 {% endblock title %}
 {% block main %}
 <!-- ======= hero section starts ========= -->
+{% include 'partials/messages.html' %}
 <div class="container-fluid py-5">
   <div class="row g-0">
     
     <div class="col-md-6 col-sm-12">
       <div class="col-12" style="height:100%; display:grid; place-items: center;">
         <div class="col-8 mx-auto" style='height:fit-content'>
-          <h4 class="hero-header">Discover the taste of good living</h4>
+          <h1 class="hero-header">Discover the taste of good living</h1>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis impedit incidunt nesciunt fugiat commodi odit aliquam in quod, dolores expedita fugit esse maiores a quis ea repellat natus similique sint.</p>
           <a href="{% url 'restaurant-menu' %}"><button class="base-color-outline rounded">View Menu</button></a>
         </div>
@@ -48,24 +49,33 @@
 
 <!-- =========== Menu section starts ============== -->
 <div class="container-fluid bg-dark py-5">
-  <h4 class="text-center mb-5">Our Menu</h4>
+  <h4 class="text-center">Our Menu</h4>
   <div class="row">
-
-    <div class="col-md-4 col-sm-12">
+    
+    {% if menus.count != 0 %}
+    {% for menu in menus %}
+    <div class="col-md-4 col-sm-12 mt-5">
       <div class="col-8 mx-auto">
         <div class="card menu-card" style="width: 100%;">
-          <img src="{% static 'images/wepik-photo-mode-2022816-22659.png' %}" class="card-img-top" alt="...">
-          <p class="menu-price">Price</p>
+          <img src="{{menu.photo.url}}" class="card-img-top" alt="...">
+          <p class="menu-price">N {{menu.price}}</p>
           <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <h5 class="card-title">{{menu.name}}</h5>
+            <p class="card-text">{{menu.description|truncatechars:100}}</p>
             <div class="fit-content">
-              <a href="{% url 'restaurant-order' %}" class="btn btn-sm"><button class="base-color-outline rounded">Order Now</button></a>
+              <a href="{% url 'restaurant-order' menu.id %}" class="btn btn-sm"><button class="base-color-outline rounded">Order Now</button></a>
             </div>
           </div>
         </div>
       </div>
     </div>
+      
+    {% endfor %}
+    {% endif %}
+      
+    
+      
+    
   </div>
 </div>
 <!-- =========== Menu section ends ============ -->
