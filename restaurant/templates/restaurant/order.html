@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Order Page
+{% endblock title %}
+
+{% block main %}
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6 col-sm-12">
+      <div class="col-10 mx-auto">
+        <img src="{{menu.photo.url}}" alt="" class="img-fluid">
+        <p class="text-center">{{menu.name}}</p>
+        <p class="text-center">N {{menu.price}}</p>
+        <p class="text-center">{{menu.description}}</p>
+      </div>
+      
+    </div>
+    <div class="col-md-6 col-sm-12">
+      <form action="" method="post" class="p-5 col-10 mt-3 mb-5 mx-auto rounded bg-base shadow">
+        {% csrf_token %}
+        {{form.name}}
+        {{form.e_mail}}
+        {{form.quantity}}
+        {{form.address}}
+        <input type="submit" value="Order" id="submit" class="base-color-outline2 rounded">
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock main %}
+  
