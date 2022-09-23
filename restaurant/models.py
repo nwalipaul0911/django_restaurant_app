@@ -21,9 +21,9 @@ class Menu(models.Model):
     return self.name
 
 class Order(models.Model):
-  address = models.TextField(max_length=150)
   name = models.CharField(max_length=100)
   e_mail = models.EmailField()
+  address = models.TextField(max_length=150)
   order_number = models.CharField(max_length=50)
   quantity = models.IntegerField()
   order_date = models.DateField(auto_now_add= timezone.localdate)
@@ -36,6 +36,7 @@ class Table(models.Model):
   name = models.CharField(max_length=100)
   guests = models.IntegerField()
   e_mail = models.EmailField()
+  booking_number = models.CharField(max_length=100)
   date_visiting = models.DateField()
   time_visiting = models.TimeField()
   booking_date = models.DateField(auto_now_add= timezone.localdate)

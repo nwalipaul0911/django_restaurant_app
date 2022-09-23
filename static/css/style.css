@@ -11,6 +11,8 @@ font-family: 'Ubuntu', sans-serif;
   --secondary: 'Ubuntu', sans-serif;
   --accent: 'Inconsolata', monospace;
   --base-color: rgb(190, 79, 0);
+  --base-color1:rgba(190, 79, 0,0.9);
+  --base-color2:rgba(190, 79, 0,0.8);
 }
 *{
   margin:0;
@@ -46,6 +48,16 @@ a>button.base-color{
   color:white;
   background-color: var(--base-color);
 }
+.base-color-outline2{
+  color:white;
+  border:2px solid white;
+  padding: 4px 10px;
+  background-color: transparent;
+}
+.base-color-outline2:hover{
+  color:var(--base-color);
+  background-color: white;
+}
 a>button.base-color-outline{
   color:var(--base-color);
   border:2px solid var(--base-color);
@@ -74,7 +86,7 @@ li{
   list-style: none;
 }
 .bg-base{
-  background-color: var(--base-color);
+  background: radial-gradient(var(--base-color2),var(--base-color1), var(--base-color));
 }
 .bg-image-1{
   background: linear-gradient(to left, rgba(225, 225, 225, 0.9), rgba(225, 225, 225, 0.9), rgba(225, 225, 225, 0)), url('../images/wepik-photo-mode-2022817-11531.png');
@@ -104,14 +116,28 @@ li{
   border-radius: 0px 5px 0px 0px;
   color:white
 }
-input,textarea, select{
+label{
+  color:white
+}
+input,textarea{
   display:block;
+  background-color: transparent;
   width: 100%;
   margin:0px 0px 20px 0px;
   outline:none;
   padding:5px 0px;
   border:none;
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid rgb(255, 255, 255);
+  color:white;
+}
+input:focus,textarea:focus{
+  background-color: rgba(255, 255, 255,0.3);
+}
+textarea{
+  max-height: 120px;
+}
+::placeholder{
+  color: white;
 }
 .reviews{
   overflow-x: hidden;
@@ -131,6 +157,6 @@ input,textarea, select{
 .circle-border{
   border-radius:50%
 }
-#lunch, #dinner, #drinks, #desserts{
+#lunch,#dinner,#drinks,#desserts,#breakfast{
   display:none
 }

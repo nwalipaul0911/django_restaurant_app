@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block title %}
+  Sign in
+{% endblock title %}
+
+
+{% block main %}
+
+<div class="container-fluid py-5">
+  <div class="container"  style="display:grid;place-items:center;height:100vh">
+  
+    <form action="" method="post" class="p-5 col-sm-10 col-md-8 col-lg-6 mt-3 mb-5 rounded  bg-base shadow">
+      <p class="text-light text-center fw-bold fs-5 mb-5">Sign In Form</p>
+      {% csrf_token %}
+      <input type="text" name="username" id="username" placeholder="Username">
+      <input type="password" name="password1" id="password1" placeholder="Password">
+      <input type="submit" value="Sign in" id="submit" class="base-color-outline2 rounded">
+      <p class="text-light text-center pt-4">Not registered? <a href="{% url 'user-signup' %}" class="text-light" style="text-decoration:underline">Sign up</a>
+      </p>
+      <p class="text-center"><a href="{% url 'password_reset' %}" class="mx-auto text-light" style="text-decoration:underline">Forgot password?</a></p>
+      
+    </form>
+
+  </div>
+  
+</div>  
+
+{% endblock main %}
+  
+  

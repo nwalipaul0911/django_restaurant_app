@@ -1,0 +1,33 @@
+
+{% if messages %}
+  {% for message in messages%}
+  <div class="container bg-{{message.tags}} text-center" id="message">
+    <p class="text-light">
+      <span>
+        {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+          Error:
+        {% else %}
+        {{ message.tags|title}}
+        {% endif %}
+      </span>
+      {{message}}
+    </p>
+  </div>
+  
+    
+
+  {% endfor %}
+  <script>
+    message = document.querySelector('#message')
+    function closeBlock(){
+      setInterval(()=>{
+        message.style.display = 'none'
+      },1000)
+    }
+    setInterval(()=>{
+        message.classList.add('fade')
+        closeBlock() 
+    }, 5000)
+  </script>
+{% endif %}
+  
