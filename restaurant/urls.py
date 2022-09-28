@@ -9,4 +9,5 @@ urlpatterns = [
     path('service/', service, name='restaurant-service'),
     path('order/<int:id>', order, name='restaurant-order'),
     path('table/', table, name='restaurant-table'),
+    path('search/', search, name='restaurant-search')
 ]

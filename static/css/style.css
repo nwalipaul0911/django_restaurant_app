@@ -13,6 +13,7 @@ font-family: 'Ubuntu', sans-serif;
   --base-color: rgb(190, 79, 0);
   --base-color1:rgba(190, 79, 0,0.9);
   --base-color2:rgba(190, 79, 0,0.8);
+  --base-color3:rgba(190,79,0,0.5);
 }
 *{
   margin:0;
@@ -127,8 +128,32 @@ input,textarea{
   outline:none;
   padding:5px 0px;
   border:none;
-  border-bottom: 1px solid rgb(255, 255, 255);
+  border-bottom: 2px solid rgb(255, 255, 255);
   color:white;
+}
+input.search-input::placeholder{
+  color:var(--base-color3)
+}
+.search-form{
+  border: 2px solid var(--base-color);
+}
+input.search-input{
+  display:block;
+  background-color: transparent;
+  width: 100%;
+  margin:0px;
+  outline:none;
+  padding:5px 0px;
+  border:none;
+  border-bottom:none;
+  color:var(--base-color);
+}
+.search-btn{
+  color:var(--base-color);
+  border:none;
+  padding: 4px 10px;
+  background-color: transparent;
+  height:fit-content
 }
 input:focus,textarea:focus{
   background-color: rgba(255, 255, 255,0.3);
