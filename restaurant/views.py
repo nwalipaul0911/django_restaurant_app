@@ -133,3 +133,14 @@ def order(request, id):
     'menu': menu,
   }
   return render(request, 'restaurant/order.html', context)
+
+def search(request):
+  menus = Menu.objects.all().order_by('-id')
+  if 'keyword' in request.GET:
+    keyword = request.GET['keyword']
+    if keyword:
+      menus = menus.filter(name__icontains=keyword)
+  context = {
+    'menus': menus
+  }
+  return render(request, 'restaurant/search.html', context)
