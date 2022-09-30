@@ -35,9 +35,6 @@ def menu(request):
 def about(request):
   return render(request, 'restaurant/about.html')
 
-def service(request):
-  return render(request, 'restaurant/service.html')
-
 def contact(request):
   form = ContactForm(request.POST)
   if request.method == 'POST':
@@ -122,7 +119,7 @@ def order(request, id):
         return HttpResponse("Invalid header found.")
       messages.success(request, 'Order Successful')
       instance.save()
-      return redirect('restaurant-home')
+      return redirect('restaurant-menu')
     else:
       messages.error(request, 'Booking not submitted. Try again')
       instance.save()

@@ -8,18 +8,25 @@
   
 
 {% block main %}
-<h4 class="text-center mt-5">Contact Us</h4>
+<!-- <h4 class="text-center mt-5">Contact Us</h4> -->
 <!--============= form section starts =======-->
 <div class="container-fluid mt-5 pt-4">
   <div class="row g-0">
     <div class="col-md-6 col-sm-12">
+      
+      <div class="col-9 mx-auto">
+        <h4>Contact US</h4>
+      <P> <i class="fa-solid fa-phone"></i> Phone  : 09091929394 </P>
+      <p> <i class="fa-solid fa-house"></i> Address : whatever</p>
+      <p> <i class="fa-solid fa-envelope"></i> Email : example@example.com</p>
+      </div>
       <div class="fit-content mx-auto mb-5">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126799.94336654953!2d3.106068362499989!3d6.708883700000023!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b995b41b7dd6d%3A0xb6c08985374e0e09!2sAptech%20Computer%20Education%20-Sango%20Ota!5e0!3m2!1sen!2sng!4v1663594005628!5m2!1sen!2sng" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="mx-auto shadow"></iframe>
       </div>
       
     </div>
     <div class="col-md-6 col-sm-12 d-flex justify-content-center align-items-center">
-        <form action="" method="post" class="p-5 col-10 mb-5 rounded  bg-base shadow">
+        <form action="" method="post" class="p-5 col-10 mb-5 rounded bg-base shadow">
           {% csrf_token %}
           {{form.name}}
           {{form.e_mail}}

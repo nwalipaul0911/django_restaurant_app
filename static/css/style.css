@@ -94,6 +94,8 @@ li{
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
+  padding-top:100px;
+  padding-bottom: 100px;
 }
 .bg-image-2{
   background: linear-gradient(to left, rgba(225, 225, 225, 0.9), rgba(225, 225, 225, 0.9), rgba(225, 225, 225, 0)), url('../images/wepik-photo-mode-2022816-215559.png');
@@ -158,6 +160,10 @@ input.search-input{
 input:focus,textarea:focus{
   background-color: rgba(255, 255, 255,0.3);
 }
+.my-dropdown:focus{
+    color:white;
+    background-color: var(--base-color);
+}
 textarea{
   max-height: 120px;
 }
@@ -184,4 +190,12 @@ textarea{
 }
 #lunch,#dinner,#drinks,#desserts,#breakfast{
   display:none
+}
+.service-header::before{
+  content: '\2022';
+  color: var(--base-color);
+  font-weight: bolder;
+  font-size: 1.5rem;
+  width: 1rem;
+  margin-right: 10px;
 }
