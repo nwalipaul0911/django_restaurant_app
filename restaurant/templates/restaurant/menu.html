@@ -8,13 +8,20 @@
   
 
 {% block main %}
+<!-- =============== menu.js ============== -->
+<script defer src="{% static 'scripts/menu.js' %}"></script>
+<!-- ============ menu.js ============ -->
 
+<!-- ==================== search field starts =============== -->
 <div class="container-fluid pt-4">
   <form class="mx-auto mt-4 col-5 d-flex search-form rounded ps-2 shadow" role="search" method="GET" action="{% url 'restaurant-search' %}">
     <input class="search-input me-2" name="keyword" type="search" placeholder="Search" aria-label="Search">
     <button class="search-btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
   </form>
 </div>
+<!-- ============ search field ends ============== -->
+
+<!-- ============ menu nav starts ============ -->
   <h4 class="text-center my-5">Our Menu</h4>  
 
   <nav class="navbar navbar-expand-lg bg-dark shadow">
@@ -38,7 +45,9 @@
       </ul>
     </div>
   </nav>
-  <!-- =========== Menu section starts ============== -->
+<!-- ============ menu nav ends =========== -->
+
+<!-- =========== Menu section starts ============== -->
 <div id="breakfast" style="display:block">
   <div class="container-fluid bg-base py-5">
     <div class="row">

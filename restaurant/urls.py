@@ -8,5 +8,6 @@ urlpatterns = [
     path('contact/', contact, name='restaurant-contact'),
     path('order/<int:id>', order, name='restaurant-order'),
     path('table/', table, name='restaurant-table'),
-    path('search/', search, name='restaurant-search')
+    path('search/', search, name='restaurant-search'),
+    path('user/', user_view, name='restaurant-user'),
 ]

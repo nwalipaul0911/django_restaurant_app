@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %} 
+
+{% block title %}
+  User Profile
+{% endblock title %}
+  
+
+{% block main %}
+
+<div class="container my-5 ">
+  <div class="row">
+    <div class="col-md-3 col-sm-12 " >
+      <div class="card col-12 py-4 my-4 shadow" style="position: sticky; top: 20px;">
+        <div class="fit-content rounded p-4 mx-auto card mb-3">
+          <i class="fa-regular fa-user fs-3 text-center text-secondary"></i>
+        </div>
+        
+        
+        <p class="card-title text-center base-color">{{user.first_name|capfirst}} {{user.last_name|capfirst}} <a href="" class="nav-link"><i class="fa-regular fa-pen-to-square"></i></a></p>
+        <hr>
+        <ul class="">
+          <li class="py-3"><a href="" class="nav-link">Messages</a></li>
+          <li class="py-3"><a href="" class="nav-link">Orders</a></li>
+          <li class="py-3"><a href="" class="nav-link">Reservations</a></li>
+
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-9 col-sm-12">
+      <div class="col-12 card shadow pt-3 my-4">
+        <table>
+          <p class="text-light bg-dark ps-3">My messages </p>
+            <tr>
+              <th>Time</th>
+              <th>Title</th>
+              <th>Details</th>
+            </tr>
+        </table>
+
+      </div>
+      <div class="col-12 card shadow pt-3 my-4">
+        <table>
+          <p class="text-light bg-dark ps-3">My orders </p>
+            <tr>
+              <th>Time</th>
+              <th>Order Number</th>
+              <th>Description</th>
+            </tr>
+        </table>
+
+      </div>
+      <div class="col-12 card shadow pt-3 my-4">
+        <table>
+          <p class="text-light bg-dark ps-3">My reservations </p>
+            <tr>
+              <th>Name</th>
+              <th>Description</th>
+              <th>Booking Number</th>
+            </tr>
+        </table>
+
+      </div>
+      <div class="row">
+        <div class="col-md-6 col-sm-12"></div>
+        <div class="col-md-6 col-sm-12"></div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+  
+{% endblock main %}
+  

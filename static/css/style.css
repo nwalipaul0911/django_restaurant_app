@@ -170,21 +170,6 @@ textarea{
 ::placeholder{
   color: white;
 }
-.reviews{
-  overflow-x: hidden;
-  position: relative;
-}
-.reviews-body{
-  flex-wrap: nowrap;
-  transform: translateX(100%);
-  animation:scroll-left 30s linear infinite;
-}
-@keyframes scroll-left {
-  0%{transform:translateX(100%)}
-  50%{transform:translateX(0%)}
-  100%{transform:translateX(-110%)}
-  
-}
 .circle-border{
   border-radius:50%
 }
@@ -198,4 +183,23 @@ textarea{
   font-size: 1.5rem;
   width: 1rem;
   margin-right: 10px;
+}
+.fade-in{
+  opacity:1;
+  transition-duration: 500ms;
+  transition-timing-function: ease-in;
+}
+th, td{
+  padding: 10px 20px;
+  color: black;
+}
+td>a{
+  text-decoration:underline;
+  color: black
+}
+td>a:hover{
+  color:var(--base-color)
+}
+.gallery-img:hover{
+  filter:brightness(0.9)
 }

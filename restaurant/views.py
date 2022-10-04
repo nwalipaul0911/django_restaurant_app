@@ -18,11 +18,11 @@ def home(request):
   return render(request, 'restaurant/index.html', context)
 
 def menu(request):
-  breakfasts = Menu.objects.all().filter(menu_category = 'breakfast').order_by('?')
-  lunchs = Menu.objects.all().filter(menu_category = 'lunch').order_by('?')
-  dinners = Menu.objects.all().filter(menu_category = 'dinner').order_by('?')
-  drinks = Menu.objects.all().filter(menu_category = 'drinks').order_by('?')
-  desserts = Menu.objects.all().filter(menu_category = 'desserts').order_by('?')
+  breakfasts = Menu.objects.all().filter(menu_category = 'breakfast').exclude(availability=False).order_by('?')
+  lunchs = Menu.objects.all().filter(menu_category = 'lunch').exclude(availability=False).order_by('?')
+  dinners = Menu.objects.all().filter(menu_category = 'dinner').exclude(availability=False).order_by('?')
+  drinks = Menu.objects.all().filter(menu_category = 'drinks').exclude(availability=False).order_by('?')
+  desserts = Menu.objects.all().filter(menu_category = 'desserts').exclude(availability=False).order_by('?')
   context = {
     'breakfasts': breakfasts,
     'lunchs': lunchs,
@@ -47,6 +47,8 @@ def contact(request):
         'message': instance.message
       }
       message = '\n'.join(body.values())
+      instance.user = request.user
+      instance.save()
       try:
         send_mail('Enquiries', message, None, ['nwalipaul353@gmail.com'],fail_silently=False)
       except BadHeaderError:
@@ -71,6 +73,7 @@ def table(request):
       random_number =random.randint(10000,500000)
       random_number2 = int((random.randint(70,90)*random_number)/7)
       instance.booking_number = random_number2
+      instance.user = request.user
       body = {
         'name': instance.name,
         'email': instance.e_mail,
@@ -105,6 +108,7 @@ def order(request, id):
       random_number = menu.id * random.randint(40000,100000)
       random_number2 = int((random.randint(10,20)*random_number)/3)
       instance.order_number = random_number2
+      instance.user = request.user
       body = {
         'name': instance.name,
         'email': instance.e_mail,
@@ -132,7 +136,7 @@ def order(request, id):
   return render(request, 'restaurant/order.html', context)
 
 def search(request):
-  menus = Menu.objects.all().order_by('-id')
+  menus = Menu.objects.all().filter(availability = True).order_by('-id')
   if 'keyword' in request.GET:
     keyword = request.GET['keyword']
     if keyword:
@@ -141,3 +145,10 @@ def search(request):
     'menus': menus
   }
   return render(request, 'restaurant/search.html', context)
+
+def user_view(request):
+  user = request.user
+  context = {
+    'user': user
+  }
+  return render(request, 'restaurant/user.html', context)

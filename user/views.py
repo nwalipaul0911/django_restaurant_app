@@ -12,14 +12,14 @@ def signIn(request):
     if user is not None and user.is_staff:
       if user.is_active:
         login(request, user)
-        return redirect('restaurant-home')
+        return redirect('staff-home')
       else:
         messages.error(request, 'User not found')
         return redirect('user-signin')
     elif user is not None and not user.is_staff:
       if user.is_active:
         login(request, user)
-        return redirect('restaurant-home')
+        return redirect('restaurant-user')
       else:
         messages.error(request, 'User not found')
         return redirect('user-signin')

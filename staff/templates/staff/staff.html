@@ -1,0 +1,180 @@
+{% extends 'base2.html' %}
+
+{% block main %}
+<div class="container">
+  <h4 class="text-center mt-5">Activities</h4>
+  <div class="row mt-3">
+    <div class="col-10 mx-auto">
+      <div class="col-10 mx-auto card my-4 shadow">
+        <div class="card-body">
+          <h6 class="card-title text-center">Contacts</h6>
+          <table>
+            <p class="text-light bg-dark ">Today</p>
+            <tr>
+              <th>Name</th>
+              <th>E-mail</th>
+              <th>Message</th>
+            </tr>
+            {% for contact in contacts_today %}
+            <tr>
+              <td>{{contact.name}}</td>
+              <td>{{contact.e_mail}}</td>
+              <td>{{contact.message|truncatechars:50}}</td>
+              <td><a href="{% url 'staff-contact' contact.id %}">View</a></td>
+            </tr>
+            {% endfor %}
+          </table>
+          <table>
+            <p class="text-light bg-dark">All</p>
+            <tr>
+              <th>Name</th>
+              <th>E-mail</th>
+              <th>Message</th>
+            </tr>
+            {% for contact in contacts %}
+            <tr>
+              <td>{{contact.name}}</td>
+              <td>{{contact.e_mail}}</td>
+              <td>{{contact.message|truncatechars:50}}</td>
+              <td><a href="{% url 'staff-contact' contact.id %}">View</a></td>
+            </tr>
+            {% endfor %}
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="col-10 mx-auto">
+      <div class="col-10 mx-auto card my-4 shadow">
+        <div class="card-body">
+          <h6 class="card-title text-center">Menus</h6>
+          <table>
+            <p class="text-light bg-dark">Today</p>
+            <tr>
+              <th>Name</th>
+              <th>Description</th>
+              <th>availability</th>
+            </tr>
+            
+            {% for menu in menus_today %}
+            <tr>
+              <td>{{menu.name}}</td>
+              <td>{{menu.description|truncatechars:50}}</td>
+              <td>{{menu.availability}}</td>
+              <td><a href="{% url 'staff-menu' menu.id %}">View</a></td>
+            </tr>
+            {% endfor %}
+          </table>
+          <table>
+            <p class="text-light bg-dark">All</p>
+            <tr>
+              <th>Name</th>
+              <th>Description</th>
+              <th>availability</th>
+            </tr>
+            {% for menu in menus %}
+            <tr>
+              <td>{{menu.name}}</td>
+              <td>{{menu.description|truncatechars:50}}</td>
+              <td>{{menu.availability}}</td>
+              <td><a href="{% url 'staff-menu' menu.id %}">View</a></td>
+            </tr>
+            {% endfor %}
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="col-10 mx-auto">
+      <div class="col-10 mx-auto card my-4 shadow">
+        <div class="card-body">
+          <h6 class="card-title text-center">Orders</h6>
+          <table>
+            <p class="text-light bg-dark">Today</p>
+            <tr>
+              <th>Name</th>
+              <th>Address</th>
+              <th>Quantity</th>
+              <th>Order time</th>
+              <th>Order Number</th>
+            </tr>
+            {% for order in orders_today %}
+            <tr>
+              <td>{{order.name}}</td>
+              <td>{{order.address|truncatechars:30}}</td>
+              <td>{{order.quantity}}</td>
+              <td>{{order.order_time}}</td>
+              <td>{{order.order_number}}</td>
+              <td><a href="{% url 'staff-order' order.id %}">View</a></td>
+            </tr>
+            {% endfor %}
+          </table>
+          <table>
+            <p class="text-light bg-dark">All</p>
+            
+            {% for order in orders %}
+            <tr>
+              <td>{{order.name}}</td>
+              <td>{{order.address|truncatechars:30}}</td>
+              <td>{{order.quantity}}</td>
+              <td>{{order.order_time}}</td>
+              <td>{{order.order_number}}</td>
+              <td><a href="{% url 'staff-order' order.id %}">View</a></td>
+            </tr>
+            {% endfor %}
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="col-10 mx-auto">
+      <div class="col-10 mx-auto card my-4 shadow">
+        <div class="card-body">
+          <h6 class="card-title text-center">Reservations</h6>
+          <table>
+            <p class="text-light bg-dark">Today</p>
+            <tr>
+              <th>Name</th>
+              <th>E-mail</th>
+              <th>No of guests</th>
+              <th>Time</th>
+              <th>Booking No</th>
+            </tr>
+            
+            {% for reservation in reservations_today %}
+            <tr>
+              <td>{{reservation.name}}</td>
+              <td>{{reservation.e_mail}}</td>
+              <td>{{reservation.guests}}</td>
+              <td>{{reservation.time_visiting}}</td>
+              <td>{{reservation.booking_number}}</td>
+              <td><a href="{% url 'staff-reservation' reservation.id %}">View</a></td>
+            </tr>
+            {% endfor %}
+          </table>
+          <table>
+            <p class="text-light bg-dark">All</p>
+            <tr>
+              <th>Name</th>
+              <th>E-mail</th>
+              <th>No of guests</th>
+              <th>Time</th>
+              <th>Booking No</th>
+            </tr>
+            
+            {% for reservation in reservations %}
+            <tr>
+              <td>{{reservation.name}}</td>
+              <td>{{reservation.e_mail}}</td>
+              <td>{{reservation.guests}}</td>
+              <td>{{reservation.time_visiting}}</td>
+              <td><a href="{% url 'staff-reservation' reservation.id %}">View</a></td>
+            </tr>
+            {% endfor %}
+          </table>
+        </div>
+      </div>
+    </div>
+    
+    
+  </div>
+</div>
+{% endblock main %}
+  
