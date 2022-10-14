@@ -11,18 +11,14 @@
     <div class="col-md-6 col-sm-12 my-5">
       <div class="row">
         <div class="col-6">
-          <h5>Links</h5>
-          
-          {% if user.is_authenticated %}
-          <a href="{% url 'restaurant-user' %}" class="nav-link text-secondary">Home</a>
-          {% else %}
+          <h5>Links</h5>   
           <a href="{% url 'restaurant-home' %}" class="nav-link text-secondary">Home</a>  
-          {% endif %}
-            
-          
           <a href="{% url 'restaurant-about' %}" class="nav-link text-secondary">About</a>
-          <a href="{% url 'restaurant-menu' %}" class="nav-link text-secondary">Menu</a>
           <a href="{% url 'restaurant-contact' %}" class="nav-link text-secondary">Contact</a>
+          <a href="{% url 'restaurant-menu' %}" class="nav-link text-secondary">Menu</a>
+          {% if user.is_authenticated %}
+          <a href="{% url 'restaurant-user' %}" class="nav-link text-secondary">My profile</a>
+          {% endif %}
         </div>
   
         <div class="col-6">

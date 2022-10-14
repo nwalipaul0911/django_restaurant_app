@@ -27,25 +27,31 @@ def home(request):
     'contacts': contacts
   }
   return render(request, 'staff/staff.html', context)
-
+@login_required
 def contact_view(request, id):
   contact = get_object_or_404(Contact, id=id)
   context={
     'contact': contact
   }
   return render(request, 'staff/contact.html', context)
+
+@login_required  
 def menu_view(request, id):
   menu = get_object_or_404(Menu, id=id)
   context={
     'menu': menu
   }
   return render(request, 'staff/menu.html', context)
+
+@login_required  
 def order_view(request, id):
   order = get_object_or_404(Order, id=id)
   context={
     'order': order
   }
   return render(request, 'staff/order.html', context)
+
+@login_required  
 def reservation_view(request, id):
   reservation = get_object_or_404(Table, id=id)
   context={

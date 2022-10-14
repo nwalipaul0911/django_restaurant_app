@@ -1,0 +1,24 @@
+<!-- Button trigger modal -->
+<a href="" class="" data-bs-toggle="modal" data-bs-target="#exampleModal{{reservation.booking_number}}">
+  View 
+</a>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal{{reservation.booking_number}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">        
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Booking number : {{reservation.booking_number}}</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>{{reservation.time_visiting}}</p>
+        <p>{{reservation.date_visiting}}</p>
+        <p>{{reservation.booking_number}}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

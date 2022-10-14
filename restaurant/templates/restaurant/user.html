@@ -8,57 +8,78 @@
   
 
 {% block main %}
+<!-- =============== menu.js ============== -->
+<script defer src="{% static 'scripts/menu.js' %}"></script>
+<!-- ============ menu.js ============ -->
 
 <div class="container my-5 ">
   <div class="row">
     <div class="col-md-3 col-sm-12 " >
-      <div class="card col-12 py-4 my-4 shadow" style="position: sticky; top: 20px;">
+      <div class="card col-12 py-4 my-4 shadow" style="position:sticky; top:50px">
         <div class="fit-content rounded p-4 mx-auto card mb-3">
           <i class="fa-regular fa-user fs-3 text-center text-secondary"></i>
         </div>
         
         
-        <p class="card-title text-center base-color">{{user.first_name|capfirst}} {{user.last_name|capfirst}} <a href="" class="nav-link"><i class="fa-regular fa-pen-to-square"></i></a></p>
+        <p class="card-title text-center base-color">{{user.first_name|capfirst}} {{user.last_name|capfirst}}</p>
         <hr>
         <ul class="">
-          <li class="py-3"><a href="" class="nav-link">Messages</a></li>
-          <li class="py-3"><a href="" class="nav-link">Orders</a></li>
-          <li class="py-3"><a href="" class="nav-link">Reservations</a></li>
+          <li class="nav-item py-3"><a href="#orders" class="nav-link">Orders {{order_count}}</a></li>
+          <li class="nav-item py-3"><a href="#reservations" class="nav-link">Reservations {{reservations_count}}</a></li>
 
         </ul>
       </div>
     </div>
     <div class="col-md-9 col-sm-12">
-      <div class="col-12 card shadow pt-3 my-4">
+      <div class="col-12 card shadow my-4" id="orders">
         <table>
-          <p class="text-light bg-dark ps-3">My messages </p>
-            <tr>
-              <th>Time</th>
-              <th>Title</th>
-              <th>Details</th>
-            </tr>
+          <p class="text-light bg-dark ps-3" style="border-radius:5px 5px 0px 0px">My orders </p>
+          {% if order_list %}
+          <tr>
+            <th>Time</th>
+            <th>Date</th>
+            <th>Order Number</th>
+            
+          </tr>
+          
+          {% for order in order_list %}
+          <tr>
+            <td>{{order.order_time}}</td>
+            <td>{{order.order_date}}</td>
+            <td>{{order.order_number}}</td>
+            <td>{% include 'partials/order_modal.html' %}</td>
+          </tr>
+          {% endfor %}
+          {% else %}
+          <p class="text-center">No orders available</p>
+          {% endif %}
         </table>
 
       </div>
-      <div class="col-12 card shadow pt-3 my-4">
+      <div class="col-12 card shadow my-4" id="reservations">
         <table>
-          <p class="text-light bg-dark ps-3">My orders </p>
+          <p class="text-light bg-dark ps-3" style="border-radius:5px 5px 0px 0px">Table reservations </p>
+          
+          {% if reservations %}
+          <tr>
+            <th>Time</th>
+            <th>Date</th>
+            <th>Booking Number</th>
+          </tr>
+          {% for reservation in reservations %}
             <tr>
-              <th>Time</th>
-              <th>Order Number</th>
-              <th>Description</th>
+              <td>{{reservation.time_visiting}}</td>
+              <td>{{reservation.date_visiting}}</td>
+              <td>{{reservation.booking_number}}</td>
+              <td>{% include 'partials/reservation_modal.html' %}</td>
             </tr>
-        </table>
-
-      </div>
-      <div class="col-12 card shadow pt-3 my-4">
-        <table>
-          <p class="text-light bg-dark ps-3">My reservations </p>
-            <tr>
-              <th>Name</th>
-              <th>Description</th>
-              <th>Booking Number</th>
-            </tr>
+          {% endfor %}
+          {% else %}
+          <p class="text-center">No reservations available</p>
+            
+          {% endif %}
+            
+            
         </table>
 
       </div>
@@ -70,6 +91,143 @@
     </div>
   </div>
 </div>
+<!-- ============ menu nav starts ============ -->
+<h4 class="text-center my-5">Menu List</h4>  
+
+<nav class="navbar navbar-expand-lg bg-dark shadow">
+  <div class="container-fluid">
+    <ul class="navbar-nav mx-auto">
+      <li class="nav-item">
+        <a class="nav-link text-light menu-nav" id="breakfast-link" aria-current="page" href="#breakfast">Breakfast</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-light menu-nav" id="lunch-link" href="#lunch">Lunch</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-light menu-nav" id="dinner-link" href="#dinner">Dinner</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-light menu-nav" id="drinks-link" href="#drinks">Drinks</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-light menu-nav" id="desserts-link" href="#desserts">Desserts</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<!-- ============ menu nav ends =========== -->
+
+<!-- =========== Menu section starts ============== -->
+<div id="breakfast" style="display:block">
+  <div class="container-fluid bg-base py-5">
+    <div class="row">
+      
+      {% for breakfast in breakfasts %}
+      <div class="col-md-4 col-sm-12">
+        <div class="card menu-card mx-auto mb-4" style="width: 14rem;">
+          <img src="{{breakfast.photo.url}}" class="card-img-top" alt="...">
+          <p class="menu-price">N {{breakfast.price}}</p>
+          <div class="card-body">
+            <h6 class="card-title text-center">{{breakfast.name}}</h6>
+            <div class="fit-content mx-auto">
+              <a href="{% url 'restaurant-order' breakfast.id %}" class="btn btn-sm"><button class="base-color-outline rounded">Order Now</button></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+        
+      
+    </div>
+  </div>
+</div>
+<div id="lunch">
+  <div class="container-fluid bg-base py-5">
+    <div class="row">
+  
+      {% for lunch in lunchs %}
+      <div class="col-md-4 col-sm-12">
+          <div class="card menu-card mb-4" style="width: 14rem;">
+            <img src="{{lunch.photo.url}}" class="card-img-top" alt="...">
+            <p class="menu-price">N {{lunch.price}}</p>
+            <div class="card-body">
+              <h6 class="card-title text-center">{{lunch.name}}</h6>
+              <div class="fit-content mx-auto">
+                <a href="{% url 'restaurant-order' lunch.id %}" class="btn btn-sm"><button class="base-color-outline rounded">Order Now</button></a>
+              </div>
+            </div>
+          </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+<div id="dinner">
+  <div class="container-fluid bg-base py-5">
+    <div class="row">
+  
+      {% for dinner in dinners %}
+      <div class="col-md-4 col-sm-12">
+          <div class="card menu-card mb-4" style="width: 14rem;">
+            <img src="{{dinner.photo.url}}" class="card-img-top" alt="...">
+            <p class="menu-price">N {{dinner.price}}</p>
+            <div class="card-body">
+              <h6 class="card-title text-center">{{dinner.name}}</h6>
+              <div class="fit-content mx-auto">
+                <a href="{% url 'restaurant-order' dinner.id %}" class="btn btn-sm"><button class="base-color-outline rounded">Order Now</button></a>
+              </div>
+            </div>
+          </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+<div id="drinks">
+  <div class="container-fluid bg-base py-5">
+    <div class="row">
+  
+      {% for drink in drinks %}
+      <div class="col-md-4 col-sm-12">
+          <div class="card menu-card mb-4" style="width: 14rem;">
+            <img src="{{drink.photo.url}}" class="card-img-top" alt="...">
+            <p class="menu-price">N {{drink.price}}</p>
+            <div class="card-body">
+              <h6 class="card-title text-center">{{drink.name}}</h6>
+              <div class="fit-content mx-auto">
+                <a href="{% url 'restaurant-order' drink.id %}" class="btn btn-sm"><button class="base-color-outline rounded">Order Now</button></a>
+              </div>
+            </div>
+          </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+<div id="desserts">
+  <div class="container-fluid bg-base py-5">
+    <div class="row">
+  
+      {% for dessert in desserts %}
+      <div class="col-md-4 col-sm-12">
+          <div class="card menu-card mb-4" style="width: 14rem">
+            <img src="{{dessert.photo.url}}" class="card-img-top" alt="...">
+            <p class="menu-price">N {{dessert.price}}</p>
+            <div class="card-body">
+              <h6 class="card-title text-center">{{dessert.name}}</h6>
+              <div class="fit-content mx-auto">
+                <a href="{% url 'restaurant-order' dessert.id %}" class="btn btn-sm"><button class="base-color-outline rounded">Order Now</button></a>
+              </div>
+            </div>
+          </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+
+<!-- =========== Menu section ends ============ -->
   
 {% endblock main %}
   

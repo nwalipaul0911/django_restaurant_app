@@ -67,19 +67,16 @@
     {% if menus.count != 0 %}
     {% for menu in menus %}
     <div class="col-md-4 col-sm-12 mt-5">
-      <div class="col-8 mx-auto">
-        <div class="card menu-card" style="width: 100%;">
+        <div class="card menu-card mb-4 mx-auto" style="width: 14rem">
           <img src="{{menu.photo.url}}" class="card-img-top" alt="...">
           <p class="menu-price">N {{menu.price}}</p>
           <div class="card-body">
-            <h5 class="card-title">{{menu.name}}</h5>
-            <p class="card-text">{{menu.description|truncatechars:100}}</p>
-            <div class="fit-content">
+            <h5 class="card-title text-center">{{menu.name}}</h5>
+            <div class="fit-content mx-auto">
               <a href="{% url 'restaurant-order' menu.id %}" class="btn btn-sm"><button class="base-color-outline rounded">Order Now</button></a>
             </div>
           </div>
         </div>
-      </div>
     </div>
       
     {% endfor %}
@@ -136,12 +133,12 @@
 </div>
 <div class="container pb-5">
   <div class="row">
-    <div class="col-md-4 col-sm-12 my-4 "><img src="{% static 'images/wepik-photo-mode-2022817-102039.png' %}" alt="" class="img-thumbnail img-fluid gallery-img"></div>
-    <div class="col-md-4 col-sm-12 my-4 "><img src="{% static 'images/wepik-photo-mode-2022817-102039.png' %}" alt="" class="img-thumbnail img-fluid gallery-img"></div>
-    <div class="col-md-4 col-sm-12 my-4 "><img src="{% static 'images/wepik-photo-mode-2022817-102039.png' %}" alt="" class="img-thumbnail img-fluid gallery-img"></div>
-    <div class="col-md-4 col-sm-12 my-4 "><img src="{% static 'images/wepik-photo-mode-2022817-102039.png' %}" alt="" class="img-thumbnail img-fluid gallery-img"></div>
-    <div class="col-md-4 col-sm-12 my-4 "><img src="{% static 'images/wepik-photo-mode-2022817-102039.png' %}" alt="" class="img-thumbnail img-fluid gallery-img"></div>
-    <div class="col-md-4 col-sm-12 my-4 "><img src="{% static 'images/wepik-photo-mode-2022817-102039.png' %}" alt="" class="img-thumbnail img-fluid gallery-img"></div>
+    <div class="col-md-4 col-sm-12 my-4 "><img src="{% static 'images/baked-quails-pan-dark-surface.jpg' %}" alt="" class="img-thumbnail img-fluid gallery-img"></div>
+    <div class="col-md-4 col-sm-12 my-4 "><img src="{% static 'images/wepik-photo-mode-2022817-11531.png' %}" alt="" class="img-thumbnail img-fluid gallery-img"></div>
+    <div class="col-md-4 col-sm-12 my-4 "><img src="{% static 'images/banquet-table-with-snacks.jpg' %}" alt="" class="img-thumbnail img-fluid gallery-img"></div>
+    <div class="col-md-4 col-sm-12 my-4 "><img src="{% static 'images/barbecue-grill-party-tasty-food-wooden-desk.jpg' %}" alt="" class="img-thumbnail img-fluid gallery-img"></div>
+    <div class="col-md-4 col-sm-12 my-4 "><img src="{% static 'images/chicken-skewers-with-slices-sweet-peppers-dill.jpg' %}" alt="" class="img-thumbnail img-fluid gallery-img"></div>
+    <div class="col-md-4 col-sm-12 my-4 "><img src="{% static 'images/sausage-fried-rice-with-tomatoes-carrots-shiitake-mushrooms-plate.jpg' %}" alt="" class="img-thumbnail img-fluid gallery-img"></div>
   </div>
 </div>
 <!-- ============ gallery section ends ======================= -->

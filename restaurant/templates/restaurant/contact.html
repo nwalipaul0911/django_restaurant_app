@@ -28,7 +28,7 @@
     <div class="col-md-6 col-sm-12 d-flex justify-content-center align-items-center">
         <form action="" method="post" class="p-5 col-10 mb-5 rounded bg-base shadow">
           {% csrf_token %}
-          {{form.name}}
+          {{form.title}}
           {{form.e_mail}}
           {{form.message}}
           <input type="submit" value="Send" id="submit" class="base-color-outline2 rounded">
