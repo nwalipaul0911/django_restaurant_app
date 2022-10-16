@@ -7,29 +7,29 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav mx-auto">
-        <a class="nav-link active" aria-current="page" href="{% url 'restaurant-home' %}">Home</a>
+        <a class="nav-link active" aria-current="page" href="{% url 'restaurant-home' %}">Home</a>       
         <a class="nav-link" href="{% url 'restaurant-about' %}">About</a>
-        <a class="nav-link" href="{% url 'restaurant-service' %}">Services</a>
         <a class="nav-link" href="{% url 'restaurant-menu' %}">Menu</a>
         <a class="nav-link" href="{% url 'restaurant-contact' %}">Contact</a>
-        <div style="width:fit-content" class="ms-0">
-          <a href="{% url 'restaurant-table' %}" class="d-md-block d-lg-none"><button class="base-color-outline rounded">BOOK A TABLE</button></a>
-        </div>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Account
           </a>
           <ul class="dropdown-menu">
             {% if user.is_authenticated %}
-            <li><a class="dropdown-item" href="{% url 'user-signout' %}">Sign out</a></li>
+            <li><a class="dropdown-item my-dropdown" href="{% url 'restaurant-user' %}">My Profile</a></li>
+            <li><a class="dropdown-item my-dropdown" href="{% url 'user-signout' %}">Sign out</a></li>
             {% else %}
-            <li><a class="dropdown-item" href="{% url 'user-signin' %}">Sign in</a></li>
-            <li><a class="dropdown-item" href="{% url 'user-signup' %}">Sign up</a></li>
+            <li><a class="dropdown-item my-dropdown" href="{% url 'user-signin' %}">Sign in</a></li>
+            <li><a class="dropdown-item my-dropdown" href="{% url 'user-signup' %}">Sign up</a></li>
             {% endif %}
             
             
           </ul>
         </li>
+        <div style="width:fit-content" class="ms-0">
+          <a href="{% url 'restaurant-table' %}" class="d-md-block d-lg-none"><button class="base-color-outline rounded">BOOK A TABLE</button></a>
+        </div>
         
       </div>
     </div>

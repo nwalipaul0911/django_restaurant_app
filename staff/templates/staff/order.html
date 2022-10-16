@@ -1,0 +1,23 @@
+{% extends 'base2.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block main %}
+  <div class="container my-5 py-4">
+    <h4 class="text-center my-4">Order</h4>
+    <div class="col-6 mx-auto card py-4 my-5 shadow">
+      <div class="card-body">
+        <p class="text-dark">Name : {{order.name}}</p>
+        <p class="text-dark">E-mail : {{order.e_mail}}</p>
+        <p class="text-dark">Address : {{order.address}}</p>
+        <p class="text-dark">Quantity : {{order.quantity}}</p>
+        <p class="text-dark">Order number : {{order.order_number}}</p>
+        <p class="text-dark">Date : {{order.order_date|naturalday}}</p>
+        <p class="text-dark">Time : {{order.order_time|naturaltime}}</p>
+
+        <a href="{% url 'staff-home' %}" class="btn btn-sm btn-outline-dark">Back</a>
+      </div>
+      
+    </div>
+  </div>
+{% endblock main %}

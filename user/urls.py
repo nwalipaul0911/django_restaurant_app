@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import signIn, signOut, signUp
+from .views import *
 from django.contrib.auth.views import PasswordResetCompleteView, PasswordResetConfirmView, PasswordResetDoneView, PasswordResetView
 urlpatterns = [
   path('signin/', signIn, name='user-signin'),

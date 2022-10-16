@@ -1,13 +1,12 @@
 
 {% if messages %}
   {% for message in messages%}
-  <div class="container bg-{{message.tags}} text-center" id="message">
-    <p class="text-light">
+  <div class="container bg-light shadow text-center" id="message">
+    <p class="text-{{message.tags}}  py-3">
       <span>
         {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
           Error:
-        {% else %}
-        {{ message.tags|title}}
+
         {% endif %}
       </span>
       {{message}}

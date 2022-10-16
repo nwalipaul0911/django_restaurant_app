@@ -1,0 +1,20 @@
+<nav class="navbar navbar-expand-lg bg-dark shadow">
+  <div class="container-fluid">
+    <li class="dropdown navbar-brand ms-auto me-5">
+      <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        
+        <i class="fa-regular fa-user"></i> {{user.username}}
+      </a>
+      <ul class="dropdown-menu">
+        {% if user.is_authenticated %}
+        <li><a class="dropdown-item my-dropdown" href="{% url 'user-signout' %}">Sign out</a></li>
+        {% else %}
+        <li><a class="dropdown-item my-dropdown" href="{% url 'user-signin' %}">Sign in</a></li>
+        <li><a class="dropdown-item my-dropdown" href="{% url 'user-signup' %}">Sign up</a></li>
+        {% endif %}
+        
+        
+      </ul>
+    </li> 
+  </div>
+</nav>

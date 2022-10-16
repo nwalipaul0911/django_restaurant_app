@@ -28,9 +28,9 @@ class TableForm(forms.ModelForm):
     fields = ('name', 'guests', 'e_mail', 'date_visiting', 'time_visiting')
 
 class ContactForm(forms.ModelForm):
-  name = forms.CharField(widget=forms.TextInput(attrs={'placeholder':'Name', 'name':'name'}))
+  title = forms.CharField(widget=forms.TextInput(attrs={'placeholder':'Title', 'name':'title'}))
   e_mail = forms.EmailField(widget=forms.EmailInput(attrs={'placeholder':'E-mail', 'name':'e_mail'}))
   message = forms.CharField(widget=forms.Textarea(attrs={'placeholder':'Message', 'name':'message'}))
   class Meta():
     model = Contact
-    fields = ('name', 'e_mail', 'message')
+    fields = ('title', 'e_mail', 'message')
