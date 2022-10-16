@@ -1,0 +1,18 @@
+{% extends 'base2.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block main %}
+  <div class="container shadow mt-5">
+    <h4 class="text-center my-4">Contact</h4>
+    <div class="col-10 mx-auto py-4">
+      <p class="text-dark">Sender's name : {{contact.name}}</p>
+      <p class="text-dark">E-mail : {{contact.e_mail}}</p>
+      <p class="text-dark">Message : {{contact.message}}</p>
+      <p class="text-dark">Time : {{contact.time_sent}}</p>
+      <p class="text-dark">Date : {{contact.Date_sent}}</p>
+      <a href="{% url 'staff-home' %}" class="btn btn-sm btn-outline-dark">Back</a>
+    </div>
+  </div>
+{% endblock main %}
+  

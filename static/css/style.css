@@ -13,11 +13,13 @@ font-family: 'Ubuntu', sans-serif;
   --base-color: rgb(190, 79, 0);
   --base-color1:rgba(190, 79, 0,0.9);
   --base-color2:rgba(190, 79, 0,0.8);
+  --base-color3:rgba(190,79,0,0.5);
 }
 *{
   margin:0;
   padding:0;
   box-sizing: border-box;
+  scroll-behavior:smooth;
 }
 h1,h2,h3,h4,h5,h6{
   font-family: var(--primary);
@@ -93,6 +95,8 @@ li{
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
+  padding-top:100px;
+  padding-bottom: 100px;
 }
 .bg-image-2{
   background: linear-gradient(to left, rgba(225, 225, 225, 0.9), rgba(225, 225, 225, 0.9), rgba(225, 225, 225, 0)), url('../images/wepik-photo-mode-2022816-215559.png');
@@ -127,10 +131,39 @@ input,textarea{
   outline:none;
   padding:5px 0px;
   border:none;
-  border-bottom: 1px solid rgb(255, 255, 255);
+  border-bottom: 2px solid rgb(255, 255, 255);
+  color:white;
+}
+input.search-input::placeholder{
+  color:var(--base-color3)
+}
+.search-form{
+  border: 2px solid var(--base-color);
+}
+input.search-input{
+  display:block;
+  background-color: transparent;
+  width: 100%;
+  margin:0px;
+  outline:none;
+  padding:5px 0px;
+  border:none;
+  border-bottom:none;
+  color:var(--base-color);
+}
+.search-btn{
+  color:var(--base-color);
+  border:none;
+  padding: 4px 10px;
+  background-color: transparent;
+  height:fit-content
 }
 input:focus,textarea:focus{
   background-color: rgba(255, 255, 255,0.3);
+}
+.my-dropdown:focus{
+    color:white;
+    background-color: var(--base-color);
 }
 textarea{
   max-height: 120px;
@@ -138,24 +171,40 @@ textarea{
 ::placeholder{
   color: white;
 }
-.reviews{
-  overflow-x: hidden;
-  position: relative;
-}
-.reviews-body{
-  flex-wrap: nowrap;
-  transform: translateX(100%);
-  animation:scroll-left 30s linear infinite;
-}
-@keyframes scroll-left {
-  0%{transform:translateX(100%)}
-  50%{transform:translateX(0%)}
-  100%{transform:translateX(-110%)}
-  
-}
 .circle-border{
   border-radius:50%
 }
-#lunch, #dinner, #drinks, #desserts{
+#lunch,#dinner,#drinks,#desserts,#breakfast{
   display:none
+}
+.service-header::before{
+  content: '\2022';
+  color: var(--base-color);
+  font-weight: bolder;
+  font-size: 1.5rem;
+  width: 1rem;
+  margin-right: 10px;
+}
+.fade-in{
+  opacity:1;
+  transition-duration: 500ms;
+  transition-timing-function: ease-in;
+}
+th, td{
+  padding: 10px 20px;
+  color: black;
+}
+td>a{
+  text-decoration:underline;
+  color: black
+}
+td>a:hover{
+  color:var(--base-color)
+}
+.gallery-img{
+  filter:brightness(0.9)
+}
+.gallery-img:hover{
+  filter: brightness(1);
+  box-shadow: 0px 0px 25px 3px rgba(73, 73, 73, 0.722);
 }

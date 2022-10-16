@@ -8,43 +8,58 @@
   
 
 {% block main %}
+<!-- =============== menu.js ============== -->
+<script defer src="{% static 'scripts/menu.js' %}"></script>
+<!-- ============ menu.js ============ -->
+
+<!-- ==================== search field starts =============== -->
+<div class="container-fluid pt-4">
+  <form class="mx-auto mt-4 col-5 d-flex search-form rounded ps-2 shadow" role="search" method="GET" action="{% url 'restaurant-search' %}">
+    <input class="search-input me-2" name="keyword" type="search" placeholder="Search" aria-label="Search">
+    <button class="search-btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+  </form>
+</div>
+<!-- ============ search field ends ============== -->
+
+<!-- ============ menu nav starts ============ -->
   <h4 class="text-center my-5">Our Menu</h4>  
 
   <nav class="navbar navbar-expand-lg bg-dark shadow">
     <div class="container-fluid">
       <ul class="navbar-nav mx-auto">
         <li class="nav-item">
-          <a class="nav-link text-light" id="breakfast-link" aria-current="page" href="#breakfast">Breakfast</a>
+          <a class="nav-link text-light menu-nav" id="breakfast-link" aria-current="page" href="#breakfast">Breakfast</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-light" id="lunch-link" href="#lunch">Lunch</a>
+          <a class="nav-link text-light menu-nav" id="lunch-link" href="#lunch">Lunch</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-light" id="dinner-link" href="#dinner">Dinner</a>
+          <a class="nav-link text-light menu-nav" id="dinner-link" href="#dinner">Dinner</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-light" id="drinks-link" href="#drinks">Drinks</a>
+          <a class="nav-link text-light menu-nav" id="drinks-link" href="#drinks">Drinks</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-light" id="desserts-link" href="#desserts">Desserts</a>
+          <a class="nav-link text-light menu-nav" id="desserts-link" href="#desserts">Desserts</a>
         </li>
       </ul>
     </div>
   </nav>
-  <!-- =========== Menu section starts ============== -->
-<div id="breakfast">
+<!-- ============ menu nav ends =========== -->
+
+<!-- =========== Menu section starts ============== -->
+<div id="breakfast" style="display:block">
   <div class="container-fluid bg-base py-5">
     <div class="row">
       
       {% for breakfast in breakfasts %}
       <div class="col-md-4 col-sm-12">
-        <div class="card menu-card mx-auto" style="width: 14rem;">
+        <div class="card menu-card mx-auto mb-4" style="width: 14rem;">
           <img src="{{breakfast.photo.url}}" class="card-img-top" alt="...">
           <p class="menu-price">N {{breakfast.price}}</p>
           <div class="card-body">
-            <h6 class="card-title">{{breakfast.name}}</h6>
-            <p class="card-text">{{breakfast.description|truncatechars:100}}</p>
-            <div class="fit-content">
+            <h6 class="card-title text-center">{{breakfast.name}}</h6>
+            <div class="fit-content mx-auto">
               <a href="{% url 'restaurant-order' breakfast.id %}" class="btn btn-sm"><button class="base-color-outline rounded">Order Now</button></a>
             </div>
           </div>
@@ -62,19 +77,16 @@
   
       {% for lunch in lunchs %}
       <div class="col-md-4 col-sm-12">
-        <div class="col-8 mx-auto">
-          <div class="card menu-card" style="width: 100%;">
+          <div class="card menu-card mb-4" style="width: 14rem;">
             <img src="{{lunch.photo.url}}" class="card-img-top" alt="...">
             <p class="menu-price">N {{lunch.price}}</p>
             <div class="card-body">
-              <h6 class="card-title">{{lunch.name}}</h6>
-              <p class="card-text">{{lunch.description|truncatechars:100}}</p>
-              <div class="fit-content">
+              <h6 class="card-title text-center">{{lunch.name}}</h6>
+              <div class="fit-content mx-auto">
                 <a href="{% url 'restaurant-order' lunch.id %}" class="btn btn-sm"><button class="base-color-outline rounded">Order Now</button></a>
               </div>
             </div>
           </div>
-        </div>
       </div>
       {% endfor %}
     </div>
@@ -86,19 +98,16 @@
   
       {% for dinner in dinners %}
       <div class="col-md-4 col-sm-12">
-        <div class="col-8 mx-auto">
-          <div class="card menu-card" style="width: 100%;">
+          <div class="card menu-card mb-4" style="width: 14rem;">
             <img src="{{dinner.photo.url}}" class="card-img-top" alt="...">
             <p class="menu-price">N {{dinner.price}}</p>
             <div class="card-body">
-              <h6 class="card-title">{{dinner.name}}</h6>
-              <p class="card-text">{{dinner.description|truncatechars:100}}</p>
-              <div class="fit-content">
+              <h6 class="card-title text-center">{{dinner.name}}</h6>
+              <div class="fit-content mx-auto">
                 <a href="{% url 'restaurant-order' dinner.id %}" class="btn btn-sm"><button class="base-color-outline rounded">Order Now</button></a>
               </div>
             </div>
           </div>
-        </div>
       </div>
       {% endfor %}
     </div>
@@ -110,19 +119,16 @@
   
       {% for drink in drinks %}
       <div class="col-md-4 col-sm-12">
-        <div class="col-8 mx-auto">
-          <div class="card menu-card" style="width: 100%;">
+          <div class="card menu-card mb-4" style="width: 14rem;">
             <img src="{{drink.photo.url}}" class="card-img-top" alt="...">
             <p class="menu-price">N {{drink.price}}</p>
             <div class="card-body">
-              <h6 class="card-title">{{drink.name}}</h6>
-              <p class="card-text">{{drink.description|truncatechars:100}}</p>
-              <div class="fit-content">
+              <h6 class="card-title text-center">{{drink.name}}</h6>
+              <div class="fit-content mx-auto">
                 <a href="{% url 'restaurant-order' drink.id %}" class="btn btn-sm"><button class="base-color-outline rounded">Order Now</button></a>
               </div>
             </div>
           </div>
-        </div>
       </div>
       {% endfor %}
     </div>
@@ -134,19 +140,16 @@
   
       {% for dessert in desserts %}
       <div class="col-md-4 col-sm-12">
-        <div class="col-8 mx-auto">
-          <div class="card menu-card" style="width: 100%;">
+          <div class="card menu-card mb-4" style="width: 14rem">
             <img src="{{dessert.photo.url}}" class="card-img-top" alt="...">
             <p class="menu-price">N {{dessert.price}}</p>
             <div class="card-body">
-              <h6 class="card-title">{{dessert.name}}</h6>
-              <p class="card-text">{{dessert.description|truncatechars:100}}</p>
-              <div class="fit-content">
+              <h6 class="card-title text-center">{{dessert.name}}</h6>
+              <div class="fit-content mx-auto">
                 <a href="{% url 'restaurant-order' dessert.id %}" class="btn btn-sm"><button class="base-color-outline rounded">Order Now</button></a>
               </div>
             </div>
           </div>
-        </div>
       </div>
       {% endfor %}
     </div>

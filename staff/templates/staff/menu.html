@@ -1,0 +1,22 @@
+{% extends 'base2.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block main %}
+  <div class="container my-5 py-4">
+    <h4 class="text-center my-4">Menu</h4>
+    <div class="col-6 mx-auto card py-4 my-5 shadow">
+      <div class="card-image"><img src="{{menu.photo.url}}" alt="" class="img-fluid"></div>
+      <div class="card-body">
+        <p class="text-dark">Name : {{menu.name}}</p>
+        <p class="text-dark">Category : {{menu.category}}</p>
+        <p class="text-dark">Description : {{menu.description}}</p>
+        <p class="text-dark">Price : {{menu.price}}</p>
+        <p class="text-dark">availability : {{menu.availability}}</p>
+        <a href="{% url 'staff-home' %}" class="btn btn-sm btn-outline-dark">Back</a>
+      </div>
+      
+    </div>
+  </div>
+{% endblock main %}
+  

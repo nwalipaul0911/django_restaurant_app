@@ -24,5 +24,5 @@ class TableAdmin(admin.ModelAdmin):
 
 @admin.register(Contact)
 class ContactAdmin(admin.ModelAdmin):
-  list_display = ('id', 'name', 'message')
-  list_display_links = ('id', 'name')
+  list_display = ('id', 'title', 'message')
+  list_display_links = ('id', 'title')

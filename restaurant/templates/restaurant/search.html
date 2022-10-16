@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block title %}
+  Search Results
+{% endblock title %}
+
+{% block main %}
+
+<div class="container-fluid py-4">
+  <form class="mx-auto mt-4 col-5 d-flex search-form rounded ps-2 shadow" role="search" method="GET" action="{% url 'restaurant-search' %}">
+    <input class="search-input me-2" name="keyword" type="search" placeholder="Search" aria-label="Search">
+    <button class="search-btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+  </form>
+</div>
+ 
+
+
+  <!-- =========== Menu section starts ============== -->
+<div>
+  <div class="container-fluid bg-dark py-3">
+    <h6 class="text-light text-center bg-dark">Search results</h6>
+  </div>
+  <div class="container-fluid bg-base py-5">
+    <div class="row">
+      
+      {% if menus %}
+      {% for menu in menus %}
+      <div class="col-md-4 col-sm-12">
+        <div class="card menu-card mx-auto" style="width: 14rem;">
+          <img src="{{menu.photo.url}}" class="card-img-top" alt="...">
+          <p class="menu-price">N {{menu.price}}</p>
+          <div class="card-body">
+            <h6 class="card-title">{{menu.name}}</h6>
+            <p class="card-text">{{menu.description|truncatechars:100}}</p>
+            <div class="fit-content">
+              <a href="{% url 'restaurant-order' menu.id %}" class="btn btn-sm"><button class="base-color-outline rounded">Order Now</button></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+      {% else %}
+      <p class="text-dark text-center fs-4">No match found</p>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+
+<!-- =========== Menu section ends ============ -->
+{% endblock main %}
+  
+  

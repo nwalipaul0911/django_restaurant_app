@@ -1,0 +1,22 @@
+{% extends 'base2.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block main %}
+  <div class="container my-5 py-4">
+    <h4 class="text-center my-4">Reservation</h4>
+    <div class="col-6 mx-auto card py-4 my-5 shadow">
+      <div class="card-body">
+        <p class="text-dark">Name : {{reservation.name}}</p>
+        <p class="text-dark">E-mail : {{reservation.e_mail}}</p>
+        <p class="text-dark">Number of guests : {{reservation.guests}}</p>
+        <p class="text-dark">Booking number : {{reervation.booking_number}}</p>
+        <p class="text-dark">Date : {{reservation.date_visiting|naturalday}}</p>
+        <p class="text-dark">Time : {{reservation.time_visiting|naturaltime}}</p>
+
+        <a href="{% url 'staff-home' %}" class="btn btn-sm btn-outline-dark">Back</a>
+      </div>
+      
+    </div>
+  </div>
+{% endblock main %}

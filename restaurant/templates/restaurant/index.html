@@ -6,7 +6,7 @@
 {% endblock title %}
 {% block main %}
 <!-- ======= hero section starts ========= -->
-{% include 'partials/messages.html' %}
+
 <div class="container-fluid py-5">
   <div class="row g-0">
     
@@ -21,7 +21,19 @@
     </div>
 
     <div class="col-md-6 col-sm-12  d-flex justify-content-center align-items-center">
-      <img src="{% static 'images/wepik-photo-mode-2022817-102039.png' %}" alt="..." class="img-fluid">
+      <div id="carouselExampleSlidesOnly" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active " data-bs-interval="7000">
+            <img src="{% static 'images/wepik-photo-mode-2022817-102039.png' %}" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item " data-bs-interval="7000">
+            <img src="{% static 'images/wepik-photo-mode-2022816-215559.png' %}" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item " data-bs-interval="7000">
+            <img src="{% static 'images/wepik-photo-mode-2022816-22659.png' %}" class="d-block w-100" alt="...">
+          </div>
+        </div>
+      </div>
     </div>
     
   </div>
@@ -29,7 +41,7 @@
 <!-- ======= hero section ends ========= -->
 
 <!--============= About section starts =======-->
-<div class="container-fluid py-5 mt-5  bg-image-1">
+<div class="container-fluid mt-5  bg-image-1">
   <div class="row g-0">
     <div class="col-md-6 col-sm-12"></div>
     <div class="col-md-6 col-sm-12">
@@ -48,109 +60,88 @@
 <!--============= About section ends ============-->
 
 <!-- =========== Menu section starts ============== -->
-<div class="container-fluid bg-dark py-5">
+<div class="container-fluid bg-dark pt-5 pb-3">
   <h4 class="text-center">Our Menu</h4>
   <div class="row">
     
     {% if menus.count != 0 %}
     {% for menu in menus %}
     <div class="col-md-4 col-sm-12 mt-5">
-      <div class="col-8 mx-auto">
-        <div class="card menu-card" style="width: 100%;">
+        <div class="card menu-card mb-4 mx-auto" style="width: 14rem">
           <img src="{{menu.photo.url}}" class="card-img-top" alt="...">
           <p class="menu-price">N {{menu.price}}</p>
           <div class="card-body">
-            <h5 class="card-title">{{menu.name}}</h5>
-            <p class="card-text">{{menu.description|truncatechars:100}}</p>
-            <div class="fit-content">
+            <h5 class="card-title text-center">{{menu.name}}</h5>
+            <div class="fit-content mx-auto">
               <a href="{% url 'restaurant-order' menu.id %}" class="btn btn-sm"><button class="base-color-outline rounded">Order Now</button></a>
             </div>
           </div>
         </div>
-      </div>
     </div>
       
     {% endfor %}
-    {% endif %}
-      
-    
-      
-    
+    {% endif %}   
+    <p class="text-center text-light mt-4"><a href="{% url 'restaurant-menu' %}" class="nav-link">View all</a></p>
   </div>
+
 </div>
 <!-- =========== Menu section ends ============ -->
 
 <!-- ========= Service section starts ======================= -->
-<div class="container-fluid my-5">
-  <h4 class="text-center my-4">Services</h4>
-  <div class="row">
-    <div class="col-md-4 col-sm-12">
-      <div class="col-10 mx-auto">
-        <img src="{% static 'images/delicious-fried-chicken-plate.jpg' %}" alt="" class="img-fluid img-thumbnail">
-        <h6 class="text-center text-dark my-3">Birthday Party</h6>
+<div class="container my-5">
+  <h4 class="text-center my-5">Special Services</h4>
+  <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active" data-bs-interval="10000">
+        <div class="row">
+          <div class="col-md-6 col-sm-12"><img src="{% static 'images/banquet-table-with-snacks.jpg' %}" class="d-block w-100 img-thumbnail shadow" alt="..."></div>
+          <div class="col-md-6 col-sm-12 pt-4">
+            <h6 class="text-dark text-center service-header">Banquet Table</h6>
+            <p class="text-dark">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore, distinctio explicabo? Ducimus, amet dicta incidunt temporibus alias quae eligendi est, aliquid necessitatibus voluptatibus sequi veritatis, iste nemo rem modi eveniet!
+            Sequi minima ipsam deserunt at cupiditate voluptates reiciendis. Laborum aspernatur perferendis nemo odio, illo quis facilis accusamus atque quas et blanditiis quasi amet eaque similique pariatur voluptatibus corporis ex sit!</p>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="col-md-4 col-sm-12">
-      <div class="col-10 mx-auto">
-        <img src="{% static 'images/delicious-fried-chicken-plate.jpg' %}" alt="" class="img-fluid img-thumbnail">
-        <h6 class="text-center text-dark my-3">Birthday Party</h6>
+      <div class="carousel-item" data-bs-interval="10000">
+        <div class="row">
+          <div class="col-md-6 col-sm-12"><img src="{% static 'images/luxury-plate-meal-vintage-celebration.jpg' %}" class="d-block w-100 img-thumbnail shadow" alt="..."></div>
+          <div class="col-md-6 col-sm-12 pt-4">
+            <h6 class="text-dark text-center service-header">Buffet</h6>
+            <p class="text-dark">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore, distinctio explicabo? Ducimus, amet dicta incidunt temporibus alias quae eligendi est, aliquid necessitatibus voluptatibus sequi veritatis, iste nemo rem modi eveniet!
+            Sequi minima ipsam deserunt at cupiditate voluptates reiciendis. Laborum aspernatur perferendis nemo odio, illo quis facilis accusamus atque quas et blanditiis quasi amet eaque similique pariatur voluptatibus corporis ex sit!</p>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="col-md-4 col-sm-12">
-      <div class="col-10 mx-auto">
-        <img src="{% static 'images/delicious-fried-chicken-plate.jpg' %}" alt="" class="img-fluid img-thumbnail">
-        <h6 class="text-center text-dark my-3">Birthday Party</h6>
-      </div>
-    </div>
-    <div class="col-md-4 col-sm-12">
-      <div class="col-10 mx-auto">
-        <img src="{% static 'images/delicious-fried-chicken-plate.jpg' %}" alt="" class="img-fluid img-thumbnail">
-        <h6 class="text-center text-dark my-3">Birthday Party</h6>
-      </div>
-    </div>
-    <div class="col-md-4 col-sm-12">
-      <div class="col-10 mx-auto">
-        <img src="{% static 'images/delicious-fried-chicken-plate.jpg' %}" alt="" class="img-fluid img-thumbnail">
-        <h6 class="text-center text-dark my-3">Birthday Party</h6>
-      </div>
-    </div>
-    <div class="col-md-4 col-sm-12">
-      <div class="col-10 mx-auto">
-        <img src="{% static 'images/delicious-fried-chicken-plate.jpg' %}" alt="" class="img-fluid img-thumbnail">
-        <h6 class="text-center text-dark my-3">Birthday Party</h6>
+      <div class="carousel-item" data-bs-interval="10000">
+        <div class="row">
+          <div class="col-md-6 col-sm-12"><img src="{% static 'images/barbecue-grill-party-tasty-food-wooden-desk.jpg' %}" class="d-block w-100 img-thumbnail shadow" alt="..."></div>
+          <div class="col-md-6 col-sm-12 pt-4">
+            <h6 class="text-dark text-center service-header">Outdoor Grills</h6>
+            <p class="text-dark">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore, distinctio explicabo? Ducimus, amet dicta incidunt temporibus alias quae eligendi est, aliquid necessitatibus voluptatibus sequi veritatis, iste nemo rem modi eveniet!
+            Sequi minima ipsam deserunt at cupiditate voluptates reiciendis. Laborum aspernatur perferendis nemo odio, illo quis facilis accusamus atque quas et blanditiis quasi amet eaque similique pariatur voluptatibus corporis ex sit!</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
 <!-- ========================= Service section ends ==================== -->
 
-<!-- ================== Review section starts ======================= -->
+<!-- ================== gallery starts ======================= -->
 <div class="container-fluid py-5">
-  <h4 class="text-center">Customer Reviews</h4>
+  <h4 class="text-center">Gallery</h4>
 </div>
-<div class="reviews container-fluid pb-5">
-  <div class="d-flex reviews-body">
-    <div class="card col-4 me-2">
-      <div class="card-body">
-        <p>A well-known quote, contained in a blockquote element.</p>
-        <h6>Source Title</h6>
-      </div>
-    </div>
-    <div class="card col-4 mx-2">
-      <div class="card-body">
-        <p>A well-known quote, contained in a blockquote element.</p>
-        <h6>Source Title</h6>
-      </div>
-    </div>
-    <div class="card col-4 ms-2">
-      <div class="card-body">
-        <p>A well-known quote, contained in a blockquote element.</p>
-        <h6>Source Title</h6>
-      </div>
-    </div>
+<div class="container pb-5">
+  <div class="row">
+    <div class="col-md-4 col-sm-12 my-4 "><img src="{% static 'images/baked-quails-pan-dark-surface.jpg' %}" alt="" class="img-thumbnail img-fluid gallery-img"></div>
+    <div class="col-md-4 col-sm-12 my-4 "><img src="{% static 'images/wepik-photo-mode-2022817-11531.png' %}" alt="" class="img-thumbnail img-fluid gallery-img"></div>
+    <div class="col-md-4 col-sm-12 my-4 "><img src="{% static 'images/banquet-table-with-snacks.jpg' %}" alt="" class="img-thumbnail img-fluid gallery-img"></div>
+    <div class="col-md-4 col-sm-12 my-4 "><img src="{% static 'images/barbecue-grill-party-tasty-food-wooden-desk.jpg' %}" alt="" class="img-thumbnail img-fluid gallery-img"></div>
+    <div class="col-md-4 col-sm-12 my-4 "><img src="{% static 'images/chicken-skewers-with-slices-sweet-peppers-dill.jpg' %}" alt="" class="img-thumbnail img-fluid gallery-img"></div>
+    <div class="col-md-4 col-sm-12 my-4 "><img src="{% static 'images/sausage-fried-rice-with-tomatoes-carrots-shiitake-mushrooms-plate.jpg' %}" alt="" class="img-thumbnail img-fluid gallery-img"></div>
   </div>
 </div>
-<!-- ============ Review section ends ======================= -->
+<!-- ============ gallery section ends ======================= -->
  
 {% endblock main %}
   

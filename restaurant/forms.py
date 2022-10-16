@@ -21,16 +21,16 @@ class TableForm(forms.ModelForm):
   name = forms.CharField(widget=forms.TextInput(attrs={'placeholder':'Name', 'name':'name'}))
   guests = forms.IntegerField(widget=forms.NumberInput(attrs={'placeholder':'Number of guest(s)', 'name':'guests'}))
   e_mail = forms.EmailField(widget=forms.EmailInput(attrs={'placeholder':'E-mail', 'name':'e_mail'}))
-  date_visiting = forms.DateField(widget=forms.DateInput(attrs={'placeholder':'Date', 'name':'date_visiting'}))
-  time_visiting = forms.TimeField(widget=forms.DateInput(attrs={'placeholder':'Time','name':'time_visiting'}))
+  date_visiting = forms.DateField(widget=forms.DateInput(attrs={'name':'date_visiting','type':'date'}))
+  time_visiting = forms.TimeField(widget=forms.TimeInput(attrs={'name':'time_visiting', 'type':'time'}))
   class Meta():
     model = Table
     fields = ('name', 'guests', 'e_mail', 'date_visiting', 'time_visiting')
 
 class ContactForm(forms.ModelForm):
-  name = forms.CharField(widget=forms.TextInput(attrs={'placeholder':'Name', 'name':'name'}))
+  title = forms.CharField(widget=forms.TextInput(attrs={'placeholder':'Title', 'name':'title'}))
   e_mail = forms.EmailField(widget=forms.EmailInput(attrs={'placeholder':'E-mail', 'name':'e_mail'}))
   message = forms.CharField(widget=forms.Textarea(attrs={'placeholder':'Message', 'name':'message'}))
   class Meta():
     model = Contact
-    fields = ('name', 'e_mail', 'message')
+    fields = ('title', 'e_mail', 'message')
