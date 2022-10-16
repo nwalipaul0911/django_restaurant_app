@@ -8,6 +8,7 @@ from django.core.mail import send_mail, BadHeaderError
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
+import random
 
 # Create your views here.
 def home(request):
@@ -47,7 +48,9 @@ def contact(request):
       if request.user.is_authenticated:
         instance.user = request.user
       else:
-        user = User(username = 'AnonymousUser')
+        random_number =random.randint(10000,500000)
+        random_number2 = int((random.randint(70,90)*random_number)/7)
+        user = User(username = f'AnonymousUser{random_number2}')
         user.set_unusable_password
         user.save()
         authenticate(user=user)
@@ -88,7 +91,8 @@ def table(request):
       if request.user.is_authenticated:
         instance.user = request.user
       else:
-        user = User(username = 'AnonymousUser')
+
+        user = User(username = f'AnonymousUser{random_number2}')
         user.set_unusable_password
         user.save()
         authenticate(user=user)
@@ -132,7 +136,7 @@ def order(request, id):
       if request.user.is_authenticated:
         instance.user = request.user
       else:
-        user = User(username = 'AnonymousUser')
+        user = User(username = f'AnonymousUser{random_number2}')
         user.set_unusable_password
         user.save()
         authenticate(user=user)
