@@ -26,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env('SECRET_KEY')
+SECRET_KEY = 'django-insecure-3x0bqc4!(0cr_*hsi+=5g*s(h(tr)c^yw8@5rwy$n)gevah)#j'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -88,12 +88,12 @@ WSGI_APPLICATION = 'core.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': env('ENGINE'),
-        'NAME': env('NAME'),
-        'USER': env('USER'),
-        'PASSWORD':env('PASSWORD'),
-        'HOST':env('HOST'),
-        'PORT':env('PORT'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD':'7CKashQwaB0NomT4rMow',
+        'HOST':'containers-us-west-89.railway.app',
+        'PORT':'6768',
     }
 }
 
@@ -162,9 +162,9 @@ MESSAGE_TAGS = {
 
 
 # EMAIL SETTINGS
-EMAIL_BACKEND = env('EMAIL_BACKEND')
-EMAIL_USE_TLS = env('EMAIL_USE_TLS')
-EMAIL_PORT = env('EMAIL_PORT')
-EMAIL_HOST = env('EMAIL_HOST')
-EMAIL_HOST_USER = env('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_USE_TLS = 'True'
+EMAIL_PORT = '587'
+EMAIL_HOST = 'smtp-mail.outlook.com'
+EMAIL_HOST_USER = 'nwalipaul353@outlook.com'
+EMAIL_HOST_PASSWORD = 'jhhhbmszhzgnbcto'
