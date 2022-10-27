@@ -31,7 +31,7 @@ SECRET_KEY = 'django-insecure-3x0bqc4!(0cr_*hsi+=5g*s(h(tr)c^yw8@5rwy$n)gevah)#j
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['https://djangorestaurantapp-production.up.railway.app/']
+ALLOWED_HOSTS = ['https://fedwell.up.railway.app/']
 
 
 # Application definition
