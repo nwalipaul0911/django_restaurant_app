@@ -48,7 +48,8 @@ INSTALLED_APPS = [
     'restaurant',
     'user',
     'staff',
-    'django.contrib.humanize'
+    'django.contrib.humanize',
+    'storages'
 ]
 
 MIDDLEWARE = [
@@ -141,7 +142,7 @@ STATIC_ROOT = (BASE_DIR/'assets')
 MEDIA_ROOT = (BASE_DIR/'media')
 MEDIA_URL= '/media/'
 
-
+DEFAULT_FILE_STORAGE = 'storages.backends.dropbox.DropBoxStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
