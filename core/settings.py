@@ -49,7 +49,6 @@ INSTALLED_APPS = [
     'user',
     'staff',
     'django.contrib.humanize',
-    'storages'
 ]
 
 MIDDLEWARE = [
@@ -142,7 +141,16 @@ STATIC_ROOT = (BASE_DIR/'assets')
 MEDIA_ROOT = (BASE_DIR/'media')
 MEDIA_URL= '/media/'
 
-DEFAULT_FILE_STORAGE = 'storages.backends.dropbox.DropBoxStorage'
+# DEFAULT STORAGE SETTINGS 
+DEFAULT_FILE_STORAGE = env('DEFAULT_FILE_STORAGE')
+DROPBOX_OAUTH2_TOKEN = env('DROPBOX_ACCESS_TOKEN')
+DROPBOX_APP_KEY = env('DROPBOX_APP_KEY')
+DROPBOX_APP_SECRET = env('DROPBOX_APP_SECRET')
+DROPBOX_OAUTH2_REFRESH_TOKEN=env('DROPBOX_OAUTH2_REFRESH_TOKEN')
+DROPBOX_ROOT_PATH = '/'
+DROPBOX_TIMEOUT = 100
+DROPBOX_WRITEMODE = 'add'
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
