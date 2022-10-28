@@ -26,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-3x0bqc4!(0cr_*hsi+=5g*s(h(tr)c^yw8@5rwy$n)gevah)#j'
+SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -43,12 +43,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
+    'cloudinary_storage',
+    'cloudinary',
 
     'restaurant',
     'user',
     'staff',
     'django.contrib.humanize',
+    
 ]
 
 MIDDLEWARE = [
@@ -142,11 +144,14 @@ MEDIA_ROOT = (BASE_DIR/'media')
 MEDIA_URL= '/media/'
 
 # DEFAULT STORAGE SETTINGS 
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': env('CLOUD_NAME'),
+    'API_KEY': env('API_KEY'),
+    'API_SECRET': env('API_SECRET')
+}
+
 DEFAULT_FILE_STORAGE = env('DEFAULT_FILE_STORAGE')
-DROPBOX_OAUTH2_TOKEN = env('DROPBOX_OAUTH2_TOKEN')
-DROPBOX_APP_KEY = env('DROPBOX_APP_KEY')
-DROPBOX_APP_SECRET = env('DROPBOX_APP_SECRET')
-DROPBOX_OAUTH2_REFRESH_TOKEN = env('DROPBOX_OAUTH2_REFRESH_TOKEN')
+
 
 
 # Default primary key field type
